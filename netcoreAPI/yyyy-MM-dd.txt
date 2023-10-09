@@ -1,0 +1,1152 @@
+2023-10-08 00:28:44.253 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:28:44.261 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:28:44.267 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:28:44.269 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:28:44.271 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:28:45.256 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:28:45.442 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 187.7305ms
+2023-10-08 00:28:45.448 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:28:45.452 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.4120ms
+2023-10-08 00:28:45.794 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:28:45.826 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.8219ms
+2023-10-08 00:28:45.873 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:28:45.923 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 50.0995ms
+2023-10-08 00:29:03.284 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:29:03.290 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:29:03.302 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:29:03.360 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 55.4084ms
+2023-10-08 00:29:03.389 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:29:03.484 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Repository.IRepository`1[netcoreAPI.Repository.CarRepository]' while attempting to activate 'netcoreAPI.Controllers.CarController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:29:03.487 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 202.7422ms
+2023-10-08 00:30:17.532 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:30:17.537 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:30:17.541 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:30:17.542 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:30:17.543 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:30:18.813 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:30:18.990 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 178.7394ms
+2023-10-08 00:30:18.997 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:30:19.000 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.2578ms
+2023-10-08 00:30:19.344 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:30:19.374 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.8403ms
+2023-10-08 00:30:19.426 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:30:19.474 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 48.4190ms
+2023-10-08 00:30:21.658 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:30:21.665 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:30:21.678 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:30:21.816 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 134.7392ms
+2023-10-08 00:30:21.846 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:30:21.944 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'netcoreAPI.Repository.CarRepository' to type 'netcoreAPI.Repository.IRepository`1[netcoreAPI.Repository.BaseRepository]'.
+   at netcoreAPI.Controllers.CarController..ctor(ILogger`1 logger, IRepository`1 repository) in F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI\Controllers\CarController.cs:line 12
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:30:21.948 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 289.9853ms
+2023-10-08 00:30:46.444 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:30:46.451 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:30:46.455 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:30:46.457 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:30:46.458 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:30:47.592 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:30:47.767 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 176.7261ms
+2023-10-08 00:30:47.774 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:30:47.777 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.0114ms
+2023-10-08 00:30:48.114 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:30:48.142 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.9578ms
+2023-10-08 00:30:48.192 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:30:48.239 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 46.8565ms
+2023-10-08 00:30:50.171 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:30:50.177 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:30:50.190 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:30:50.252 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 59.3089ms
+2023-10-08 00:30:50.280 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:30:50.375 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Repository.IRepository`1[netcoreAPI.Domain.Car]' while attempting to activate 'netcoreAPI.Controllers.CarController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:30:50.378 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 207.3263ms
+2023-10-08 00:31:40.708 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:31:40.713 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:31:40.717 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:31:40.718 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:31:40.719 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:31:41.956 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:31:42.133 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 178.3250ms
+2023-10-08 00:31:42.139 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:31:42.142 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 2.9651ms
+2023-10-08 00:31:42.471 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:31:42.498 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.3411ms
+2023-10-08 00:31:42.551 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:31:42.600 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 48.9075ms
+2023-10-08 00:31:45.473 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:31:45.481 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:31:45.493 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:31:45.553 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 56.6834ms
+2023-10-08 00:31:45.582 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:31:45.678 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Repository.CarRepository' while attempting to activate 'netcoreAPI.Controllers.CarController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:31:45.680 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 207.0708ms
+2023-10-08 00:32:19.226 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:32:19.234 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:32:19.238 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:32:19.240 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:32:19.241 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:32:20.330 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:32:20.510 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 181.6125ms
+2023-10-08 00:32:20.517 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:32:20.520 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 2.9771ms
+2023-10-08 00:32:20.859 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:32:20.887 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.2088ms
+2023-10-08 00:32:20.939 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:32:20.987 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 48.3722ms
+2023-10-08 00:32:23.063 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:32:23.069 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:32:23.082 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:32:23.229 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 143.4086ms
+2023-10-08 00:32:23.265 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:32:23.364 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'netcoreAPI.Repository.CarRepository' to type 'netcoreAPI.Repository.IRepository`1[netcoreAPI.Repository.BaseRepository]'.
+   at netcoreAPI.Controllers.CarController..ctor(ILogger`1 logger, CarRepository repository) in F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI\Controllers\CarController.cs:line 12
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:32:23.367 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 304.5128ms
+2023-10-08 00:39:27.953 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:39:27.958 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:39:27.962 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:39:27.963 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:39:27.964 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:39:29.103 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:39:29.289 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 187.7847ms
+2023-10-08 00:39:29.294 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:39:29.297 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 2.9758ms
+2023-10-08 00:39:29.634 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:39:29.662 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.2495ms
+2023-10-08 00:39:29.714 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:39:29.765 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 51.6520ms
+2023-10-08 00:39:37.201 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:39:37.207 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:39:37.221 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:39:37.281 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 56.7829ms
+2023-10-08 00:39:37.313 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:39:37.408 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Repository.CarRepository' while attempting to activate 'netcoreAPI.Controllers.CarController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:39:37.410 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 208.5114ms
+2023-10-08 00:40:07.163 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:40:07.168 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:40:07.171 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:40:07.172 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:40:07.173 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:40:08.613 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:40:08.814 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 202.2685ms
+2023-10-08 00:40:08.823 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:40:08.828 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 4.5355ms
+2023-10-08 00:40:09.184 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:40:09.213 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.3037ms
+2023-10-08 00:40:09.265 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:40:09.313 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 47.8408ms
+2023-10-08 00:40:11.470 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:40:11.478 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:40:11.492 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:40:11.551 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 56.4066ms
+2023-10-08 00:40:11.581 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:40:11.675 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Repository.CarRepository' while attempting to activate 'netcoreAPI.Controllers.CarController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:40:11.677 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 207.4443ms
+2023-10-08 00:40:42.090 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:40:42.096 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:40:42.099 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:40:42.100 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:40:42.101 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:40:43.295 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:40:43.479 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 186.4458ms
+2023-10-08 00:40:43.485 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:40:43.488 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.0394ms
+2023-10-08 00:40:43.834 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:40:43.863 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.9238ms
+2023-10-08 00:40:43.913 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:40:43.966 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 52.1647ms
+2023-10-08 00:40:46.043 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:40:46.049 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:40:46.061 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:41:15.681 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:41:15.686 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:41:15.690 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:41:15.691 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:41:15.692 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:41:16.950 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:41:17.150 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 201.7756ms
+2023-10-08 00:41:17.156 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:41:17.159 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.3280ms
+2023-10-08 00:41:17.506 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:41:17.534 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.3724ms
+2023-10-08 00:41:17.585 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:41:17.632 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 47.6683ms
+2023-10-08 00:41:20.836 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 00:41:20.843 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 00:41:20.856 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 00:46:06.601 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:46:06.606 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:46:06.610 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:46:06.611 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:46:06.612 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:46:07.633 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:46:07.812 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 180.1902ms
+2023-10-08 00:46:07.819 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:46:07.822 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.3012ms
+2023-10-08 00:46:08.162 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:46:08.191 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.1025ms
+2023-10-08 00:46:08.243 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:46:08.364 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - netcoreAPI.Controllers.CarController.GetRepository (netcoreAPI). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:46:08.367 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 123.6031ms
+2023-10-08 00:46:18.296 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 00:46:18.301 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 00:46:18.305 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 00:46:18.306 -03:00 [INF] Hosting environment: Development
+2023-10-08 00:46:18.307 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 00:46:19.516 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 00:46:19.691 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 176.3894ms
+2023-10-08 00:46:19.696 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 00:46:19.699 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 2.9677ms
+2023-10-08 00:46:20.041 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 00:46:20.068 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.7071ms
+2023-10-08 00:46:20.120 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 00:46:20.226 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - netcoreAPI.Controllers.CarController.GetRepository (netcoreAPI). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 00:46:20.228 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 108.5187ms
+2023-10-08 01:03:31.410 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 01:03:31.417 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 01:03:31.421 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 01:03:31.422 -03:00 [INF] Hosting environment: Development
+2023-10-08 01:03:31.423 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 01:03:32.324 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 01:03:32.505 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 183.0766ms
+2023-10-08 01:03:32.510 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 01:03:32.514 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.2351ms
+2023-10-08 01:03:32.864 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 01:03:32.892 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.5530ms
+2023-10-08 01:03:32.943 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 01:03:32.992 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 49.0550ms
+2023-10-08 01:03:37.035 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 01:03:37.042 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 01:03:37.055 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 01:05:11.544 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[netcoreAPI.Domain.Car, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-08 01:05:11.557 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 94498.9236ms
+2023-10-08 01:05:11.558 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 01:05:11.560 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 200 - application/json;+charset=utf-8 94525.0333ms
+2023-10-08 01:07:36.902 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 01:07:36.907 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 01:07:36.910 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 01:07:36.911 -03:00 [INF] Hosting environment: Development
+2023-10-08 01:07:36.912 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 01:07:37.958 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 01:07:38.136 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 179.0888ms
+2023-10-08 01:07:38.142 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 01:07:38.145 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.1742ms
+2023-10-08 01:07:38.494 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 01:07:38.522 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.6121ms
+2023-10-08 01:07:38.575 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 01:07:38.625 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 50.0410ms
+2023-10-08 01:07:40.572 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-08 01:07:40.578 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 01:07:40.590 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 01:07:56.777 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[netcoreAPI.Domain.Car, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-08 01:07:56.789 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 16196.1421ms
+2023-10-08 01:07:56.790 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 01:07:56.792 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 200 - application/json;+charset=utf-8 16219.9779ms
+2023-10-08 01:15:56.489 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 01:15:56.495 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 01:15:56.499 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 01:15:56.500 -03:00 [INF] Hosting environment: Development
+2023-10-08 01:15:56.501 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\netcoreAPI\netcoreAPI
+2023-10-08 01:15:57.654 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 01:15:57.897 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 244.4628ms
+2023-10-08 01:15:57.902 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 01:15:57.905 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11989 application/javascript;+charset=utf-8 3.0860ms
+2023-10-08 01:15:58.248 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 01:15:58.275 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.2468ms
+2023-10-08 01:15:58.326 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 01:15:58.374 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 47.3286ms
+2023-10-08 01:16:01.605 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 01:16:01.611 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.GetAll (netcoreAPI)'
+2023-10-08 01:16:01.630 -03:00 [INF] Route matched with {action = "GetAll", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(netcoreAPI.Repository.BrandRepository) on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 17:51:36.897 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 17:51:36.903 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 17:51:36.906 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 17:51:36.907 -03:00 [INF] Hosting environment: Development
+2023-10-08 17:51:36.908 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 17:51:39.310 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 17:51:39.536 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 227.5436ms
+2023-10-08 17:51:39.543 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 17:51:39.547 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.8522ms
+2023-10-08 17:51:39.934 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 17:51:40.126 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 191.9515ms
+2023-10-08 17:51:40.168 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 17:51:40.263 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 95.2881ms
+2023-10-08 17:52:09.246 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 17:52:09.257 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 17:52:09.392 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 17:52:09.394 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 148.1055ms
+2023-10-08 17:53:18.058 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 17:53:18.064 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 17:53:18.068 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 17:53:18.069 -03:00 [INF] Hosting environment: Development
+2023-10-08 17:53:18.070 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 17:53:21.058 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 17:53:21.241 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 184.2092ms
+2023-10-08 17:53:21.247 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 17:53:21.251 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.1113ms
+2023-10-08 17:53:21.622 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 17:53:21.650 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.7004ms
+2023-10-08 17:53:21.699 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 17:53:21.771 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 71.8418ms
+2023-10-08 18:12:52.049 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:12:52.154 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Services.IUserService' while attempting to Invoke middleware 'netcoreAPI.Extensions.JwtMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:12:52.156 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 500 - text/plain;+charset=utf-8 106.8814ms
+2023-10-08 18:15:16.632 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 18:15:16.638 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 18:15:16.641 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 18:15:16.642 -03:00 [INF] Hosting environment: Development
+2023-10-08 18:15:16.643 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 18:15:19.548 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 18:15:19.728 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 181.6290ms
+2023-10-08 18:15:19.734 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 18:15:19.737 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.1446ms
+2023-10-08 18:15:20.089 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 18:15:20.119 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.4383ms
+2023-10-08 18:15:20.170 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 18:15:20.254 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 84.1746ms
+2023-10-08 18:15:30.612 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:15:30.715 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Services.IUserService' while attempting to Invoke middleware 'netcoreAPI.Extensions.JwtMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:15:30.718 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 500 - text/plain;+charset=utf-8 106.0063ms
+2023-10-08 18:15:32.844 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:15:32.905 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Services.IUserService' while attempting to Invoke middleware 'netcoreAPI.Extensions.JwtMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:15:32.905 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 500 - text/plain;+charset=utf-8 61.0749ms
+2023-10-08 18:16:57.164 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:16:57.226 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'netcoreAPI.Services.IUserService' while attempting to Invoke middleware 'netcoreAPI.Extensions.JwtMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:16:57.226 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 500 - text/plain;+charset=utf-8 62.8906ms
+2023-10-08 18:17:42.170 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 18:17:42.175 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 18:17:42.179 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 18:17:42.180 -03:00 [INF] Hosting environment: Development
+2023-10-08 18:17:42.181 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 18:17:43.982 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 18:17:44.155 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 173.8301ms
+2023-10-08 18:17:44.162 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 18:17:44.165 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.0709ms
+2023-10-08 18:17:44.658 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 18:17:44.691 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.7264ms
+2023-10-08 18:17:44.743 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 18:17:44.819 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.0480ms
+2023-10-08 18:17:57.559 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:18:05.807 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 18:18:05.818 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 18:19:00.653 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 18:19:00.658 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 18:19:00.662 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 18:19:00.663 -03:00 [INF] Hosting environment: Development
+2023-10-08 18:19:00.664 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 18:19:04.946 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 18:19:05.126 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 181.1003ms
+2023-10-08 18:19:05.132 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 18:19:05.135 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.0505ms
+2023-10-08 18:19:05.575 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 18:19:05.604 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.0802ms
+2023-10-08 18:19:05.654 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 18:19:05.732 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 78.0441ms
+2023-10-08 18:26:41.970 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:26:56.422 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 18:26:56.433 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 18:27:53.373 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 18:27:53.382 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 56943.6098ms
+2023-10-08 18:27:53.383 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 18:27:53.386 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 71415.5676ms
+2023-10-08 18:28:05.567 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 18:28:05.572 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:28:05.690 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:28:05.693 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 125.8777ms
+2023-10-08 18:28:12.296 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 18:28:12.297 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:28:12.412 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:28:12.412 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 116.9963ms
+2023-10-08 18:28:25.459 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 18:28:25.464 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 18:28:25.468 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 18:28:25.469 -03:00 [INF] Hosting environment: Development
+2023-10-08 18:28:25.470 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 18:28:30.951 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 18:28:31.152 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 202.5164ms
+2023-10-08 18:28:31.158 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 18:28:31.162 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.2439ms
+2023-10-08 18:28:31.600 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 18:28:31.636 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.6074ms
+2023-10-08 18:28:31.692 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 18:28:31.792 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.7625ms
+2023-10-08 18:28:49.377 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 18:28:52.432 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 18:28:52.443 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 18:28:54.018 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 18:28:54.024 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 1578.1415ms
+2023-10-08 18:28:54.025 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 18:28:54.027 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 4649.9426ms
+2023-10-08 18:32:17.366 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 18:32:17.400 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:32:17.519 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:32:17.522 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 157.4215ms
+2023-10-08 18:32:58.372 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/cars - -
+2023-10-08 18:32:58.373 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:32:58.492 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:32:58.494 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 122.1001ms
+2023-10-08 18:33:13.488 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/cars - -
+2023-10-08 18:33:13.488 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:33:13.591 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:33:13.591 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 103.2029ms
+2023-10-08 18:34:54.188 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 18:34:54.191 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:34:54.289 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:34:54.290 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 102.1732ms
+2023-10-08 18:45:45.155 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 18:45:45.160 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 18:45:45.164 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 18:45:45.165 -03:00 [INF] Hosting environment: Development
+2023-10-08 18:45:45.166 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 18:45:49.243 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 18:45:49.439 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 196.5308ms
+2023-10-08 18:45:49.445 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 18:45:49.449 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.3315ms
+2023-10-08 18:45:49.817 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 18:45:49.846 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.8897ms
+2023-10-08 18:45:49.901 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 18:45:49.988 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 86.6448ms
+2023-10-08 18:45:58.301 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 18:45:58.308 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:45:58.445 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:45:58.453 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 152.3834ms
+2023-10-08 18:46:05.636 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 18:46:05.638 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:46:05.729 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:46:05.730 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 93.5405ms
+2023-10-08 18:46:26.096 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 18:46:26.101 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 18:46:26.105 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 18:46:26.107 -03:00 [INF] Hosting environment: Development
+2023-10-08 18:46:26.108 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 18:46:27.255 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 18:46:27.442 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 188.5529ms
+2023-10-08 18:46:27.450 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 18:46:27.453 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.2011ms
+2023-10-08 18:46:27.816 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 18:46:27.847 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.7425ms
+2023-10-08 18:46:27.905 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 18:46:27.991 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 86.4400ms
+2023-10-08 18:46:31.877 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 18:46:31.882 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 18:46:32.031 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 18:46:32.038 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 500 - text/plain;+charset=utf-8 161.9081ms
+2023-10-08 19:02:14.803 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-08 19:02:15.071 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:02:15.073 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:02:15.077 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:02:15.079 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:02:15.080 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:02:16.335 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:02:16.574 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 241.3822ms
+2023-10-08 19:02:16.581 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:02:16.585 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.7596ms
+2023-10-08 19:02:16.966 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:02:17.076 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 109.9899ms
+2023-10-08 19:02:17.120 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:02:17.192 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 72.3577ms
+2023-10-08 19:02:30.187 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 19:02:30.972 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 's')
+   at System.ArgumentNullException.Throw(String paramName)
+   at System.Text.Encoding.GetBytes(String s)
+   at netcoreAPI.Extensions.StartUp.<>c__DisplayClass1_0.<AddDefualtSettings>b__0(JwtBearerOptions options) in F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI\Extensions\StartUp.cs:line 45
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__3`1.<GetOrAdd>b__3_0(String name, ValueTuple`2 arg)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd[TArg](TKey key, Func`3 valueFactory, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 19:02:30.974 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 500 - text/plain;+charset=utf-8 787.2716ms
+2023-10-08 19:02:53.879 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-08 19:02:54.036 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:02:54.038 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:02:54.041 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:02:54.042 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:02:54.043 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:02:55.221 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:02:55.431 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 211.9202ms
+2023-10-08 19:02:55.438 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:02:55.441 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.5567ms
+2023-10-08 19:02:55.813 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:02:55.844 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.4116ms
+2023-10-08 19:02:55.901 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:02:55.976 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 74.5490ms
+2023-10-08 19:03:00.326 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 50
+2023-10-08 19:03:37.469 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-08 19:03:37.623 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:03:37.624 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:03:37.627 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:03:37.628 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:03:37.629 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:03:38.804 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:03:39.006 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 203.7778ms
+2023-10-08 19:03:39.012 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:03:39.016 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.3988ms
+2023-10-08 19:03:39.370 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:03:39.398 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.5007ms
+2023-10-08 19:03:39.450 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:03:39.527 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.6195ms
+2023-10-08 19:03:43.033 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 50
+2023-10-08 19:09:13.979 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:09:13.987 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:09:13.991 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:09:13.993 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:09:13.994 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:09:14.857 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:09:15.043 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 187.7768ms
+2023-10-08 19:09:15.050 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:09:15.053 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.4544ms
+2023-10-08 19:09:15.407 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:09:15.436 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.2796ms
+2023-10-08 19:09:15.487 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:09:15.561 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 73.3503ms
+2023-10-08 19:09:18.957 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 19:09:18.964 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:09:19.084 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 19:09:19.086 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 129.6907ms
+2023-10-08 19:09:39.735 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 19:10:40.011 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:10:40.016 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:10:40.020 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:10:40.021 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:10:40.023 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:10:41.301 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:10:41.498 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 198.0134ms
+2023-10-08 19:10:41.504 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:10:41.507 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.3935ms
+2023-10-08 19:10:41.868 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:10:41.900 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.3240ms
+2023-10-08 19:10:41.956 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:10:42.030 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 73.7074ms
+2023-10-08 19:10:45.344 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 50
+2023-10-08 19:11:47.296 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:11:47.302 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:11:47.306 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:11:47.307 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:11:47.309 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:11:54.175 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:11:54.181 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:11:54.185 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:11:54.186 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:11:54.187 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:11:55.403 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:11:55.616 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 214.0415ms
+2023-10-08 19:11:55.623 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:11:55.626 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.0586ms
+2023-10-08 19:11:55.972 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:11:56.001 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.4803ms
+2023-10-08 19:11:56.053 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:11:56.126 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 73.3860ms
+2023-10-08 19:11:59.440 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 50
+2023-10-08 19:14:31.747 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:14:31.752 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:14:31.757 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:14:31.759 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:14:31.760 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:14:32.574 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:14:32.762 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 189.5636ms
+2023-10-08 19:14:32.768 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:14:32.772 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.6399ms
+2023-10-08 19:14:33.148 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:14:33.179 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.6369ms
+2023-10-08 19:14:33.233 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:14:33.310 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.0571ms
+2023-10-08 19:14:37.387 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 50
+2023-10-08 19:14:47.643 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:14:47.654 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 19:14:47.839 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 19:14:47.844 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 188.1671ms
+2023-10-08 19:14:47.845 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:14:47.848 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 50 - 400 - application/json;+charset=utf-8 10460.5688ms
+2023-10-08 19:15:01.673 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 19:15:01.692 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:15:01.692 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 19:15:01.752 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 19:15:01.753 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 61.1644ms
+2023-10-08 19:15:01.753 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:15:01.754 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 80.5874ms
+2023-10-08 19:15:08.170 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-08 19:15:08.176 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:15:08.282 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.<>c__DisplayClass0_0.<<HandleAsync>g__Handle|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-08 19:15:08.284 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 114.0482ms
+2023-10-08 19:24:39.503 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-08 19:24:39.681 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:24:39.683 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:24:39.687 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:24:39.689 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:24:39.690 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:24:40.910 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:24:41.100 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 190.7456ms
+2023-10-08 19:24:41.107 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:24:41.111 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.6075ms
+2023-10-08 19:24:41.468 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:24:41.496 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.3552ms
+2023-10-08 19:24:41.549 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:24:41.625 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.1860ms
+2023-10-08 19:24:53.642 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 19:24:57.055 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:24:57.065 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 19:24:57.294 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 19:24:57.300 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 231.9366ms
+2023-10-08 19:24:57.300 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:24:57.303 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 3660.6958ms
+2023-10-08 19:25:14.165 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:25:14.169 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:25:14.265 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10206: Unable to validate audience. The 'audiences' parameter is empty.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateAudience(IEnumerable`1 audiences, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:25:14.284 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:25:14.285 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 119.4562ms
+2023-10-08 19:25:36.920 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:25:36.921 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:25:36.923 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:25:36.923 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 2.6295ms
+2023-10-08 19:25:49.049 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:25:49.049 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:25:49.049 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:25:49.049 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 0.6823ms
+2023-10-08 19:26:01.862 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:26:01.863 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:26:01.906 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenNoExpirationException: IDX10225: Lifetime validation failed. The token is missing an Expiration Time. Tokentype: 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:26:01.907 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:26:01.907 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 44.3594ms
+2023-10-08 19:26:04.369 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:26:04.369 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:26:04.411 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:26:04.411 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:26:04.411 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 42.3092ms
+2023-10-08 19:26:16.974 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:26:16.975 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:26:17.011 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10503: Signature validation failed. Token does not have a kid. Keys tried: '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:26:17.012 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:26:17.012 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 37.5140ms
+2023-10-08 19:26:19.082 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:26:19.083 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:26:19.120 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenNoExpirationException: IDX10225: Lifetime validation failed. The token is missing an Expiration Time. Tokentype: 'System.IdentityModel.Tokens.Jwt.JwtSecurityToken'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:26:19.121 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:26:19.121 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 38.4437ms
+2023-10-08 19:26:25.058 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:26:25.058 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:26:25.097 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10206: Unable to validate audience. The 'audiences' parameter is empty.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateAudience(IEnumerable`1 audiences, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:26:25.097 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:26:25.097 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 38.9489ms
+2023-10-08 19:26:43.089 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:26:43.089 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:26:43.126 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10206: Unable to validate audience. The 'audiences' parameter is empty.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateAudience(IEnumerable`1 audiences, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:26:43.127 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:26:43.127 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 37.5040ms
+2023-10-08 19:27:28.381 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 19:27:28.398 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:27:28.401 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 19:27:28.406 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 19:27:28.406 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 4.8408ms
+2023-10-08 19:27:28.406 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 19:27:28.406 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 27.6019ms
+2023-10-08 19:27:31.545 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:27:31.545 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:27:31.582 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10206: Unable to validate audience. The 'audiences' parameter is empty.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateAudience(IEnumerable`1 audiences, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2023-10-08 19:27:31.582 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:27:31.582 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 37.0342ms
+2023-10-08 19:28:27.293 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-08 19:28:27.454 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 19:28:27.455 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 19:28:27.458 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 19:28:27.459 -03:00 [INF] Hosting environment: Development
+2023-10-08 19:28:27.460 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 19:28:28.481 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 19:28:28.669 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 188.7654ms
+2023-10-08 19:28:28.676 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 19:28:28.679 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.3860ms
+2023-10-08 19:28:29.037 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 19:28:29.069 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.2563ms
+2023-10-08 19:28:29.123 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 19:28:29.200 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.1050ms
+2023-10-08 19:28:32.502 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 19:28:32.508 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-08 19:28:41.975 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-08 19:28:41.982 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 401 0 - 9479.6146ms
+2023-10-08 20:40:36.682 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-08 20:40:36.839 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-08 20:40:36.840 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-08 20:40:36.843 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-08 20:40:36.844 -03:00 [INF] Hosting environment: Development
+2023-10-08 20:40:36.845 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-08 20:40:37.966 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-08 20:40:38.174 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 208.4428ms
+2023-10-08 20:40:38.181 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-08 20:40:38.184 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.4901ms
+2023-10-08 20:40:38.542 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-08 20:40:38.572 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.4638ms
+2023-10-08 20:40:38.624 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-08 20:40:38.699 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 75.2253ms
+2023-10-08 20:40:48.139 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-08 20:40:51.456 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 20:40:51.467 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-08 20:40:51.697 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-08 20:40:51.702 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 232.6908ms
+2023-10-08 20:40:51.703 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-08 20:40:51.705 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 3566.5025ms
+2023-10-08 20:41:12.777 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-08 20:41:12.836 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 20:41:12.840 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-08 20:41:19.788 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[netcoreAPI.Domain.Car, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-08 20:41:19.795 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 6955.3186ms
+2023-10-08 20:41:19.795 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-08 20:41:19.796 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 200 - application/json;+charset=utf-8 7018.9929ms
+2023-10-09 00:00:22.651 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 00:00:22.966 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-09 00:00:22.967 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-09 00:00:22.970 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 00:00:22.972 -03:00 [INF] Hosting environment: Development
+2023-10-09 00:00:22.973 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-09 00:00:24.292 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-09 00:00:24.524 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 234.2108ms
+2023-10-09 00:00:24.531 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 00:00:24.534 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.1387ms
+2023-10-09 00:00:24.938 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-09 00:00:24.971 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 33.1873ms
+2023-10-09 00:00:25.028 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-09 00:00:25.111 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 82.4617ms
+2023-10-09 00:00:38.824 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-09 00:00:39.385 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-09 00:00:39.396 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-09 00:00:39.636 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-09 00:00:39.642 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 243.4332ms
+2023-10-09 00:00:39.643 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-09 00:00:39.646 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 822.2727ms
+2023-10-09 00:00:54.641 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/car - -
+2023-10-09 00:00:54.699 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-09 00:00:54.703 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-09 00:01:01.580 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[netcoreAPI.Domain.Car, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-09 00:01:01.588 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 6885.0443ms
+2023-10-09 00:01:01.588 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-09 00:01:01.588 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/car - - - 200 - application/json;+charset=utf-8 6946.8476ms
+2023-10-09 00:01:09.810 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/cars - -
+2023-10-09 00:01:09.930 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The AuthorizationPolicy named: 'admin' was not found.
+   at Microsoft.AspNetCore.Authorization.AuthorizationPolicy.CombineAsync(IAuthorizationPolicyProvider policyProvider, IEnumerable`1 authorizeData, IEnumerable`1 policies)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-10-09 00:01:09.932 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/cars - - - 500 - text/plain;+charset=utf-8 121.8195ms
+2023-10-09 00:01:32.599 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 00:01:32.756 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-09 00:01:32.757 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-09 00:01:32.761 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 00:01:32.763 -03:00 [INF] Hosting environment: Development
+2023-10-09 00:01:32.764 -03:00 [INF] Content root path: F:\BrunoDrive\OneDrive\projects\examples\exampleAPI\exampleAPI
+2023-10-09 00:01:34.065 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-09 00:01:34.269 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 205.1401ms
+2023-10-09 00:01:34.277 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 00:01:34.281 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 4.0370ms
+2023-10-09 00:01:34.678 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-09 00:01:34.713 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.3498ms
+2023-10-09 00:01:34.765 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-09 00:01:34.845 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 80.6844ms
+2023-10-09 00:01:36.573 -03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7213/Car/cars - -
+2023-10-09 00:01:37.399 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.GetAll (netcoreAPI)'
+2023-10-09 00:01:37.413 -03:00 [INF] Route matched with {action = "GetAll", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(netcoreAPI.Repository.BrandRepository) on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-09 00:01:40.300 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[netcoreAPI.Domain.Car, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-09 00:01:40.312 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.GetAll (netcoreAPI) in 2896.9612ms
+2023-10-09 00:01:40.313 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.GetAll (netcoreAPI)'
+2023-10-09 00:01:40.316 -03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7213/Car/cars - - - 200 - application/json;+charset=utf-8 3742.2003ms
+2023-10-09 00:06:20.378 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 00:06:20.543 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-09 00:06:20.544 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-09 00:06:20.548 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 00:06:20.549 -03:00 [INF] Hosting environment: Development
+2023-10-09 00:06:20.550 -03:00 [INF] Content root path: F:\BrunoDrive\proyects\Examples\netcoreAPI\netcoreAPI
+2023-10-09 00:06:22.030 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-09 00:06:22.261 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 232.4761ms
+2023-10-09 00:06:22.269 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 00:06:22.274 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 4.6451ms
+2023-10-09 00:06:22.683 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-09 00:06:22.749 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.5724ms
+2023-10-09 00:06:22.792 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-09 00:06:22.867 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 74.7588ms
+2023-10-09 00:06:34.506 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-09 00:06:35.753 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-09 00:06:35.764 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-09 00:06:35.987 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-10-09 00:06:35.992 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 225.2042ms
+2023-10-09 00:06:35.993 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-09 00:06:35.996 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 1489.5279ms
+2023-10-09 00:06:45.010 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-09 00:06:45.016 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-09 00:06:45.020 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-09 00:06:45.020 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 401 0 - 10.0772ms
+2023-10-09 00:06:50.000 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-09 00:06:50.005 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-09 00:06:50.005 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-09 00:06:50.005 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 401 0 - 5.7242ms
+2023-10-09 00:06:56.806 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/car - -
+2023-10-09 00:06:56.806 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-09 00:06:56.807 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-09 00:06:56.807 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/car - - - 401 0 - 0.7618ms
