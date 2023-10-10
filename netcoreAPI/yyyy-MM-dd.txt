@@ -46,3 +46,98 @@
 2023-10-10 09:19:30.744 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.1568ms
 2023-10-10 09:19:30.794 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
 2023-10-10 09:19:30.886 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 92.3644ms
+2023-10-10 09:56:23.624 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-10 09:56:23.800 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-10 09:56:23.801 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-10 09:56:23.804 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-10 09:56:23.805 -03:00 [INF] Hosting environment: Development
+2023-10-10 09:56:23.806 -03:00 [INF] Content root path: F:\BrunoDrive\proyects\Examples\netcoreAPI\netcoreAPI
+2023-10-10 09:56:24.679 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-10 09:56:24.857 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 179.5403ms
+2023-10-10 09:56:24.863 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-10 09:56:24.866 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 2.8895ms
+2023-10-10 09:56:25.218 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-10 09:56:25.246 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.9953ms
+2023-10-10 09:56:25.295 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-10 09:56:25.375 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 79.9705ms
+2023-10-10 09:57:03.855 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/1 - -
+2023-10-10 09:57:04.484 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-10 09:57:04.487 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 09:57:04.487 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/1 - - - 401 0 - 631.8406ms
+2023-10-10 09:57:12.467 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 09:57:12.471 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2023-10-10 09:57:12.471 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 09:57:12.471 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 401 0 - 4.2032ms
+2023-10-10 09:57:42.720 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-10 09:57:43.337 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-10 09:57:43.348 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-10 09:57:43.540 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Threading.Tasks.Task`1[[netcoreAPI.Models.AuthRespModel, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-10 09:57:43.567 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 216.0635ms
+2023-10-10 09:57:43.567 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-10 09:57:43.570 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 877.3446ms
+2023-10-10 09:58:16.947 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 09:58:16.950 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2023-10-10 09:58:16.950 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 09:58:16.950 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 401 0 - 3.5651ms
+2023-10-10 09:58:22.163 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 09:58:22.164 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2023-10-10 09:58:22.164 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 09:58:22.164 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 401 0 - 0.5965ms
+2023-10-10 09:59:34.415 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 09:59:34.418 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2023-10-10 09:59:34.418 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 09:59:34.418 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 401 0 - 3.1147ms
+2023-10-10 10:08:42.254 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-10 10:08:42.438 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-10 10:08:42.439 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-10 10:08:42.442 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-10 10:08:42.444 -03:00 [INF] Hosting environment: Development
+2023-10-10 10:08:42.478 -03:00 [INF] Content root path: F:\BrunoDrive\proyects\Examples\netcoreAPI\netcoreAPI
+2023-10-10 10:08:43.281 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-10 10:08:43.467 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 186.5243ms
+2023-10-10 10:08:43.472 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-10 10:08:43.475 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.0124ms
+2023-10-10 10:08:43.812 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-10 10:08:43.839 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.3851ms
+2023-10-10 10:08:43.889 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-10 10:08:43.969 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 79.3869ms
+2023-10-10 10:09:17.044 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7213/User/authenticate application/json 51
+2023-10-10 10:09:17.575 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-10 10:09:17.585 -03:00 [INF] Route matched with {action = "Authenticate", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Authenticate(netcoreAPI.Models.AuthRequest) on controller netcoreAPI.Controllers.UserController (netcoreAPI).
+2023-10-10 10:09:17.765 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Threading.Tasks.Task`1[[netcoreAPI.Models.AuthRespModel, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-10 10:09:17.781 -03:00 [INF] Executed action netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI) in 193.8201ms
+2023-10-10 10:09:17.782 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.UserController.Authenticate (netcoreAPI)'
+2023-10-10 10:09:17.784 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7213/User/authenticate application/json 51 - 200 - application/json;+charset=utf-8 739.9742ms
+2023-10-10 10:09:29.174 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/1 - -
+2023-10-10 10:09:29.179 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-10 10:09:29.183 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 10:09:29.183 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/1 - - - 401 0 - 8.8742ms
+2023-10-10 10:09:41.593 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/1 - -
+2023-10-10 10:09:41.595 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-10 10:09:41.595 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 10:09:41.595 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/1 - - - 401 0 - 2.3279ms
+2023-10-10 10:10:01.041 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/1 - -
+2023-10-10 10:10:01.103 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-10 10:10:01.108 -03:00 [INF] Route matched with {action = "Get", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[netcoreAPI.Domain.Car]] Get(Int32) on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-10 10:10:01.117 -03:00 [INF] Executing OkObjectResult, writing value of type 'netcoreAPI.Domain.Car'.
+2023-10-10 10:10:01.122 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.Get (netcoreAPI) in 14.3447ms
+2023-10-10 10:10:01.122 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.Get (netcoreAPI)'
+2023-10-10 10:10:01.122 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/1 - - - 200 - application/json;+charset=utf-8 82.2094ms
+2023-10-10 10:10:12.598 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 10:10:12.623 -03:00 [INF] Executing endpoint 'netcoreAPI.Controllers.CarController.GetAll (netcoreAPI)'
+2023-10-10 10:10:12.625 -03:00 [INF] Route matched with {action = "GetAll", controller = "Car"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[netcoreAPI.Domain.Car]]] GetAll(netcoreAPI.Repository.BrandRepository) on controller netcoreAPI.Controllers.CarController (netcoreAPI).
+2023-10-10 10:10:23.302 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[netcoreAPI.Models.CarViewModel, netcoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-10 10:10:23.303 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.GetAll (netcoreAPI) in 10678.2536ms
+2023-10-10 10:10:23.303 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.GetAll (netcoreAPI)'
+2023-10-10 10:10:23.303 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 200 - application/json;+charset=utf-8 10704.8099ms
