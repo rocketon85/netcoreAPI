@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 //using extension for cammon settings
-builder.AddDefualtSettings();
+builder.ConfigureWebBuilder();
 
 var app = builder.Build();
 
@@ -25,6 +25,6 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 //using extension for cammon settings
-app.UseDefualtSettings();
+app.ConfigureAppBuilder();
 
 app.Run();

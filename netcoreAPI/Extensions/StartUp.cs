@@ -21,7 +21,7 @@ namespace netcoreAPI.Extensions
     public static class StartUp
     {
 
-        public static void AddDefualtSettings(this WebApplicationBuilder builder)
+        public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
         {
             builder.Services.AddSwaggerGen(options =>
             {
@@ -55,10 +55,10 @@ namespace netcoreAPI.Extensions
             builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("yyyy-MM-dd.txt").CreateLogger());
 
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
-            builder.Services.AddDefualtSettings(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
+            builder.Services.ConfigureServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
         }
 
-        public static IServiceCollection AddDefualtSettings(this IServiceCollection services, JwtSettings jwtSettings)
+        public static IServiceCollection ConfigureServices(this IServiceCollection services, JwtSettings jwtSettings)
         {
 
             services.AddDbContext<AppDbContext>();
@@ -88,7 +88,7 @@ namespace netcoreAPI.Extensions
             return services;
         }
 
-        public static IApplicationBuilder UseDefualtSettings(this IApplicationBuilder app)
+        public static IApplicationBuilder ConfigureAppBuilder(this IApplicationBuilder app)
         {
             app.UseAuthentication();
             app.UseAuthorization();
