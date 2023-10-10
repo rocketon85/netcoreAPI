@@ -9,7 +9,7 @@ using netcoreAPI.Identity;
 
 namespace netcoreAPI.Services
 {
-    public class JwtService:IJwtService
+    public class JwtService : IJwtService
     {
         private readonly JwtSettings jwtSettings;
 
@@ -23,22 +23,30 @@ namespace netcoreAPI.Services
 
         public string GenerateJwtToken(User user)
         {
-            // generate token that is valid for 7 days
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(this.jwtSettings.Key!);
-            var tokenDescriptor = new SecurityTokenDescriptor
+            try
             {
-                Subject = new ClaimsIdentity(new[] { 
+                // generate token that is valid for 7 days
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes(this.jwtSettings.Key!);
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new[] {
                     new Claim("id", user.Id.ToString()) ,
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(ClaimTypes.Role, "admin"),
                 }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+                    Expires = DateTime.UtcNow.AddDays(7),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+
+                return tokenHandler.WriteToken(token);
+            }
+            catch (Exception ex) { 
+            
+            }
+            return "";
         }
 
         public int? ValidateJwtToken(string? token)

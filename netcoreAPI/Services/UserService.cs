@@ -15,9 +15,9 @@ namespace netcoreAPI.Services
             this.userRepository = userRepository;
         }
 
-        public dynamic? Authenticate(AuthRequest request)
+        public async Task<AuthRespModel> Authenticate(AuthRequest request)
         {
-            var user = this.userRepository.Get(request.Username, request.Password);
+            var user = await this.userRepository.Get(request.Username, request.Password);
 
             // return null if user not found
             if (user == null) return null;
@@ -25,12 +25,12 @@ namespace netcoreAPI.Services
             // authentication successful so generate jwt token
             var token = jwtService.GenerateJwtToken(user);
 
-            return new { Token = token, UserId = user.Id};
+            return new AuthRespModel ( user.Id, token );
         }
 
-        public User? GetById(int id)
+        public async Task<User?> GetById(int id)
         {
-            return this.userRepository.GetById(id);
+            return await this.userRepository.GetById(id);
         }
     }
 }

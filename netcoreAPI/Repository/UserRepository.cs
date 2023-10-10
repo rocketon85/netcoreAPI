@@ -1,4 +1,5 @@
-﻿using netcoreAPI.Dal;
+﻿using Microsoft.EntityFrameworkCore;
+using netcoreAPI.Dal;
 using netcoreAPI.Identity;
 
 namespace netcoreAPI.Repository
@@ -10,22 +11,22 @@ namespace netcoreAPI.Repository
 
         }
 
-        public IEnumerable<User> GetAll()
+        public async Task<IEnumerable<User>> GetAll()
         {
-            return this.dbContext.Users.ToList();
+            return await this.dbContext.Users.ToListAsync();
         }
 
-        public User Get(string name, string password)
+        public async Task<User?> Get(string name, string password)
         {
-            return this.dbContext.Users.SingleOrDefault(p => p.Name.ToLower() == name.ToLower() && p.Password == password);
+            return await this.dbContext.Users.SingleOrDefaultAsync(p => p.Name.ToLower() == name.ToLower() && p.Password == password);
         }
 
-        public User GetById(int id)
+        public async Task<User?> GetById(int id)
         {
-            return this.dbContext.Users.SingleOrDefault(p => p.Id == id);
+            return await this.dbContext.Users.SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public User GetByName(string name)
+        public Task<User?> GetByName(string name)
         {
             throw new NotImplementedException();
         }

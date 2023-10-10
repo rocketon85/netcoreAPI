@@ -1,4 +1,5 @@
-﻿using netcoreAPI.Dal;
+﻿using Microsoft.EntityFrameworkCore;
+using netcoreAPI.Dal;
 using netcoreAPI.Domain;
 
 namespace netcoreAPI.Repository
@@ -10,17 +11,17 @@ namespace netcoreAPI.Repository
 
         }
 
-        public IEnumerable<Car> GetAll()
+        public async Task<IEnumerable<Car>> GetAll()
         {
-            return this.dbContext.Cars.ToList();
+            return await this.dbContext.Cars.Include(p=> p.Fuel).Include(p => p.Model).Include(p => p.Brand).ToListAsync();
         }
 
-        public Car GetById(int id)
+        public async Task<Car?> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await this.dbContext.Cars.SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public Car GetByName(string name)
+        public async Task<Car?> GetByName(string name)
         {
             throw new NotImplementedException();
         }

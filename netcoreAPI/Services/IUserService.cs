@@ -5,7 +5,7 @@ namespace netcoreAPI.Services
 {
     public interface IUserService
     {
-        dynamic? Authenticate(AuthRequest model);
-        User? GetById(int id);
+        Task<AuthRespModel?> Authenticate(AuthRequest model);
+        Task<User?> GetById(int id);
     }
 }

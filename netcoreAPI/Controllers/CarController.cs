@@ -4,6 +4,7 @@ using netcoreAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using netcoreAPI.Models;
 
 namespace netcoreAPI.Controllers
 {
@@ -22,19 +23,20 @@ namespace netcoreAPI.Controllers
         }
 
 
-        [HttpGet("car")]
-        public async Task<IActionResult> Get()
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Car>> Get(int id)
         {
-            var a = this.repository.GetAll();
-            return Ok(a);
+            var car = await this.repository.GetById(id);
+            return car != null ? Ok(car) : NotFound(id);
         }
 
         [HttpGet("cars")]
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> GetAll([FromServices] BrandRepository brandRepository)
+        public async Task<ActionResult<IEnumerable<Car>>> GetAll([FromServices] BrandRepository brandRepository)
         {
-            var a = this.repository.GetAll();
-            return Ok(a);
+            var cars = await this.repository.GetAll();
+            var carView = cars.Select(p => new CarViewModel ( p.Id, p.Fuel.Name, p.Brand.Name, p.Model.Name )).ToList();
+            return carView.Any() ? Ok(carView) : NotFound();
         }
     }
 }

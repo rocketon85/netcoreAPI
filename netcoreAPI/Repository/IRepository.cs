@@ -4,8 +4,8 @@ namespace netcoreAPI.Repository
 {
     public interface IRepository<T>
     {
-        public abstract T GetById(int id);
-        public abstract T GetByName(string name);
-        public abstract IEnumerable<T> GetAll();
+        public abstract Task<T?> GetById(int id);
+        public abstract Task<T?> GetByName(string name);
+        public abstract Task<IEnumerable<T>> GetAll();
     }
 }

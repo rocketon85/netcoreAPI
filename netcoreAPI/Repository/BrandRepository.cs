@@ -1,4 +1,5 @@
-﻿using netcoreAPI.Dal;
+﻿using Microsoft.EntityFrameworkCore;
+using netcoreAPI.Dal;
 using netcoreAPI.Domain;
 
 namespace netcoreAPI.Repository
@@ -10,17 +11,17 @@ namespace netcoreAPI.Repository
 
         }
 
-        public IEnumerable<Brand> GetAll()
+        public async Task<IEnumerable<Brand>> GetAll()
         {
-            return this.dbContext.Brands.ToList();
+            return await this.dbContext.Brands.ToListAsync();
         }
 
-        public Brand GetById(int id)
+        public async Task<Brand?> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await this.dbContext.Brands.SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public Brand GetByName(string name)
+        public async Task<Brand?> GetByName(string name)
         {
             throw new NotImplementedException();
         }
