@@ -16,8 +16,6 @@ namespace netcoreAPI.Tests
         public async void Auth()
         {
             AuthRespModel resp = await this.service.Authenticate(new Models.AuthRequest { Username = "user", Password = "user" });
-
-            //AuthRespModel resp = this.service.Authenticate(new Models.AuthRequest { Username = "user", Password = "user" }).GetAwaiter().GetResult();
             Assert.True(resp.UserId == 1);
         }
     }
