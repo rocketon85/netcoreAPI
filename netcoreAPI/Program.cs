@@ -26,5 +26,6 @@ app.MapControllers();
 
 //using extension for cammon settings
 app.ConfigureAppBuilder();
+app.ConfigureMinimal();
 
 app.Run();

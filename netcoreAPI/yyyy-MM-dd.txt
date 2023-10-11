@@ -141,3 +141,75 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2023-10-10 10:10:23.303 -03:00 [INF] Executed action netcoreAPI.Controllers.CarController.GetAll (netcoreAPI) in 10678.2536ms
 2023-10-10 10:10:23.303 -03:00 [INF] Executed endpoint 'netcoreAPI.Controllers.CarController.GetAll (netcoreAPI)'
 2023-10-10 10:10:23.303 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 200 - application/json;+charset=utf-8 10704.8099ms
+2023-10-10 18:49:46.767 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-10 18:49:46.917 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-10 18:49:46.918 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-10 18:49:46.921 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-10 18:49:46.922 -03:00 [INF] Hosting environment: Development
+2023-10-10 18:49:46.923 -03:00 [INF] Content root path: F:\BrunoDrive\proyects\Examples\netcoreAPI\netcoreAPI
+2023-10-10 18:49:49.650 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-10 18:49:49.863 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 213.5804ms
+2023-10-10 18:49:49.869 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-10 18:49:49.872 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 2.9360ms
+2023-10-10 18:49:50.229 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-10 18:49:50.263 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.2750ms
+2023-10-10 18:49:50.316 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-10 18:49:50.424 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.1609ms
+2023-10-10 18:49:55.470 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/api/info - -
+2023-10-10 18:49:56.809 -03:00 [INF] Executing endpoint 'HTTP: GET /api/info'
+2023-10-10 18:49:56.818 -03:00 [INF] Setting HTTP status code 200.
+2023-10-10 18:49:56.818 -03:00 [INF] Writing value of type 'String' as Json.
+2023-10-10 18:49:56.821 -03:00 [INF] Executed endpoint 'HTTP: GET /api/info'
+2023-10-10 18:49:56.823 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/api/info - - - 200 - application/json;+charset=utf-8 1353.8478ms
+2023-10-10 18:51:47.392 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-10 18:51:47.546 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-10 18:51:47.548 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-10 18:51:47.550 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-10 18:51:47.552 -03:00 [INF] Hosting environment: Development
+2023-10-10 18:51:47.553 -03:00 [INF] Content root path: F:\BrunoDrive\proyects\Examples\netcoreAPI\netcoreAPI
+2023-10-10 18:51:50.711 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-10 18:51:50.899 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 188.6591ms
+2023-10-10 18:51:50.907 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-10 18:51:50.912 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 4.4448ms
+2023-10-10 18:51:51.317 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-10 18:51:51.346 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.7219ms
+2023-10-10 18:51:51.400 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-10 18:51:51.498 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 98.0541ms
+2023-10-10 18:52:00.428 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 18:52:00.493 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2023-10-10 18:52:00.496 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 18:52:00.496 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 401 0 - 68.3743ms
+2023-10-10 18:52:03.570 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/Car/cars - -
+2023-10-10 18:52:03.573 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (admin)
+2023-10-10 18:52:03.573 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-10-10 18:52:03.573 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/Car/cars - - - 401 0 - 3.3622ms
+2023-10-10 18:52:10.636 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/api/info - -
+2023-10-10 18:52:11.116 -03:00 [INF] Executing endpoint 'HTTP: GET /api/info'
+2023-10-10 18:52:11.124 -03:00 [INF] Setting HTTP status code 200.
+2023-10-10 18:52:11.125 -03:00 [INF] Writing value of type 'ApiInfoModel' as Json.
+2023-10-10 18:52:11.129 -03:00 [INF] Executed endpoint 'HTTP: GET /api/info'
+2023-10-10 18:52:11.131 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/api/info - - - 200 - application/json;+charset=utf-8 495.3395ms
+2023-10-10 21:48:05.410 -03:00 [INF] User profile is available. Using 'C:\Users\Bruno\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-10 21:48:05.561 -03:00 [INF] Now listening on: https://localhost:7213
+2023-10-10 21:48:05.562 -03:00 [INF] Now listening on: http://localhost:5190
+2023-10-10 21:48:05.565 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-10 21:48:05.566 -03:00 [INF] Hosting environment: Development
+2023-10-10 21:48:05.567 -03:00 [INF] Content root path: F:\BrunoDrive\proyects\Examples\netcoreAPI\netcoreAPI
+2023-10-10 21:48:09.185 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/index.html - -
+2023-10-10 21:48:09.399 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/index.html - - - 200 - text/html;charset=utf-8 215.8810ms
+2023-10-10 21:48:09.406 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - -
+2023-10-10 21:48:09.409 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.1085ms
+2023-10-10 21:48:09.773 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/_vs/browserLink - -
+2023-10-10 21:48:09.801 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.5077ms
+2023-10-10 21:48:09.854 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - -
+2023-10-10 21:48:09.948 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 93.9792ms
+2023-10-10 21:48:20.817 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7213/api/info - -
+2023-10-10 21:48:21.355 -03:00 [INF] Executing endpoint 'HTTP: GET /api/info'
+2023-10-10 21:48:21.364 -03:00 [INF] Setting HTTP status code 200.
+2023-10-10 21:48:21.364 -03:00 [INF] Writing value of type 'ApiInfoModel' as Json.
+2023-10-10 21:48:21.368 -03:00 [INF] Executed endpoint 'HTTP: GET /api/info'
+2023-10-10 21:48:21.370 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7213/api/info - - - 200 - application/json;+charset=utf-8 553.4193ms

@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
+using netcoreAPI.Models;
 
 namespace netcoreAPI.Extensions
 {
@@ -94,6 +95,22 @@ namespace netcoreAPI.Extensions
             app.UseAuthorization();
 
             app.UseMiddleware<JwtMiddleware>();
+
+            return app;
+        }
+
+        public static IApplicationBuilder ConfigureMinimal(this WebApplication app)
+        {
+            app.MapGet("/api/info", async () =>
+            {
+                return Results.Ok( new ApiInfoModel ("Canalini, Bruno", "v2.0"));
+            })
+            .Produces<ApiInfoModel>(StatusCodes.Status200OK)
+            .WithOpenApi(operation => new(operation)
+            {
+                Summary= "API Info",
+                Description = "Minimal API endpoint"
+            });
 
             return app;
         }
