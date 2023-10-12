@@ -24,6 +24,15 @@ namespace netcoreAPI.Extensions
 
         public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
         {
+            //add cors policy
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("corsPolicy",
+                    policy => policy.WithOrigins("https://localhost:7148")
+                                    .AllowAnyHeader());
+            });
+
+            //add compatibility for Authorization token
             builder.Services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -72,6 +81,8 @@ namespace netcoreAPI.Extensions
             services.AddScoped<IJwtService, JwtService>();
 
             services.AddAuthorization();
+
+            //add JWT as scheme for authentication
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
@@ -91,6 +102,8 @@ namespace netcoreAPI.Extensions
 
         public static IApplicationBuilder ConfigureAppBuilder(this IApplicationBuilder app)
         {
+            app.UseCors("corsPolicy");
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -99,6 +112,11 @@ namespace netcoreAPI.Extensions
             return app;
         }
 
+        /// <summary>
+        /// Add configuration for Minimal API example.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
         public static IApplicationBuilder ConfigureMinimal(this WebApplication app)
         {
             app.MapGet("/api/info", async () =>
