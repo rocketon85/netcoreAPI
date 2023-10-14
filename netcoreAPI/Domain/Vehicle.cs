@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
         public int FuelId { get; set; }
         public Fuel Fuel { get; set; }
         public double MaxSpeed { get; set; }

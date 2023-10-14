@@ -21,9 +21,9 @@ namespace netcoreAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthRequest model)
+        public async Task<ActionResult<AuthRespModel>> Authenticate(AuthRequest model)
         {
-            var response = this.userService.Authenticate(model);
+            var response = await this.userService.Authenticate(model);
 
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect" });

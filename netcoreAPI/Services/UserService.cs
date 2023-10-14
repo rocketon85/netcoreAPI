@@ -1,4 +1,5 @@
-﻿using netcoreAPI.Identity;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using netcoreAPI.Identity;
 using netcoreAPI.Models;
 using netcoreAPI.Repository;
 
@@ -25,7 +26,7 @@ namespace netcoreAPI.Services
             // authentication successful so generate jwt token
             var token = jwtService.GenerateJwtToken(user);
 
-            return new AuthRespModel ( user.Id, token );
+            return await Task<AuthRespModel>.FromResult(new AuthRespModel ( user.Id, token ));
         }
 
         public async Task<User?> GetById(int id)
