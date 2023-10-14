@@ -16,6 +16,9 @@ using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using netcoreAPI.Models;
+using netcoreAPI.Controllers;
+using Microsoft.AspNetCore.ResponseCompression;
+using netcoreAPI.Hubs;
 
 namespace netcoreAPI.Extensions
 {
@@ -70,13 +73,21 @@ namespace netcoreAPI.Extensions
 
         public static IServiceCollection ConfigureServices(this IServiceCollection services, JwtSettings jwtSettings)
         {
-
+            services.AddSignalR();
+            services.AddResponseCompression(opts =>
+            {
+                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
+            });
             services.AddDbContext<AppDbContext>();
 
             services.TryAddTransient<CarRepository, CarRepository>();
-            services.TryAddTransient<IUserService, UserService>();
             services.TryAddTransient<UserRepository, UserRepository>();
             services.TryAddTransient<BrandRepository, BrandRepository>();
+
+            services.TryAddTransient<ISignalRHub, SignalRHub>();
+            services.TryAddTransient<IUserService, UserService>();
+            services.TryAddTransient<ICarService, CarService>();
 
             services.AddScoped<IJwtService, JwtService>();
 
@@ -119,6 +130,8 @@ namespace netcoreAPI.Extensions
         /// <returns></returns>
         public static IApplicationBuilder ConfigureMinimal(this WebApplication app)
         {
+            app.UseResponseCompression();
+
             app.MapGet("/api/info", async () =>
             {
                 return Results.Ok( new ApiInfoModel ("Canalini, Bruno", "v2.0"));
@@ -130,6 +143,7 @@ namespace netcoreAPI.Extensions
                 Description = "Minimal API endpoint"
             });
 
+            app.MapHub<SignalRHub>("/signalhub");
             return app;
         }
     }
