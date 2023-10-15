@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository serves as an illustrative example of a .NET Core API that demonstrates the implementation of various key features and technologies. It showcases the use of design patterns, dependency injection, extensions, JWT (JSON Web Token) authorization, and Entity Framework. Whether you are a beginner looking to learn these concepts or an experienced developer seeking a reference, this project can serve as a valuable resource.
+This repository serves as an illustrative example of a .NET Core API that demonstrates the implementation of various key features and technologies. It showcases the use of design patterns, dependency injection, middleware, extensions, JWT (JSON Web Token) authorization, and Entity Framework. Whether you are a beginner looking to learn these concepts or an experienced developer seeking a reference, this project can serve as a valuable resource.
 
 ## Features
 
@@ -15,6 +15,12 @@ This repository serves as an illustrative example of a .NET Core API that demons
 - **JWT Authorization:** Implements JWT-based authentication and authorization for securing API endpoints.
 
 - **Entity Framework:** Utilizes Entity Framework Core for data access, providing a robust and efficient way to interact with the database.
+
+- **SignalR:** Utilizes SignalR for Real-Time Bidirectional Communication.
+
+- **Minimal API:** Utilizes Minimal API include only the minimum files, features, and dependencies in ASP.NET Core.
+
+ - **Auto Mapper:** Employs AutoMapper to Simplify Object Conversion.
 
 ## Prerequisites
 
