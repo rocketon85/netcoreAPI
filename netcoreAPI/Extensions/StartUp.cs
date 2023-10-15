@@ -65,7 +65,7 @@ namespace netcoreAPI.Extensions
             });
 
             //add serilog for write log to file
-            builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("yyyy-MM-dd.txt").CreateLogger());
+            builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger());
 
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
             builder.Services.ConfigureServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
