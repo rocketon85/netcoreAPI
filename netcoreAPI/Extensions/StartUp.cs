@@ -27,7 +27,7 @@ namespace netcoreAPI.Extensions
 
         public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
         {
-            //add cors policy
+            //Add Cors Policy
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("corsPolicy",
@@ -35,7 +35,7 @@ namespace netcoreAPI.Extensions
                                     .AllowAnyHeader());
             });
 
-            //add compatibility for Authorization token
+            //Add Swager Compatibility for Authorization token
             builder.Services.AddSwaggerGen(options =>
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -73,27 +73,19 @@ namespace netcoreAPI.Extensions
 
         public static IServiceCollection ConfigureServices(this IServiceCollection services, JwtSettings jwtSettings)
         {
+            //Add SignalR Support
             services.AddSignalR();
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
                     new[] { "application/octet-stream" });
             });
-            services.AddDbContext<AppDbContext>();
-
-            services.TryAddTransient<CarRepository, CarRepository>();
-            services.TryAddTransient<UserRepository, UserRepository>();
-            services.TryAddTransient<BrandRepository, BrandRepository>();
-
-            services.TryAddTransient<ISignalRHub, SignalRHub>();
-            services.TryAddTransient<IUserService, UserService>();
-            services.TryAddTransient<ICarService, CarService>();
-
-            services.AddScoped<IJwtService, JwtService>();
-
-
+           
+            //Add AutoMapper Support
             services.AddAutoMapper(typeof(StartUp));
 
+            //Add Authorization
+            /*******************************************************************************/
             services.AddAuthorization();
 
             //add JWT as scheme for authentication
@@ -110,6 +102,22 @@ namespace netcoreAPI.Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
                 };
             });
+            /*******************************************************************************/
+
+            //Add injections
+            /*******************************************************************************/
+            services.AddDbContext<AppDbContext>();
+
+            services.TryAddTransient<CarRepository, CarRepository>();
+            services.TryAddTransient<UserRepository, UserRepository>();
+            services.TryAddTransient<BrandRepository, BrandRepository>();
+
+            services.TryAddTransient<ISignalRHub, SignalRHub>();
+            services.TryAddTransient<IUserService, UserService>();
+            services.TryAddTransient<ICarService, CarService>();
+
+            services.AddScoped<IJwtService, JwtService>();
+            /*******************************************************************************/
 
             return services;
         }
@@ -135,6 +143,7 @@ namespace netcoreAPI.Extensions
         {
             app.UseResponseCompression();
 
+            //Add Minimal API Example
             app.MapGet("/api/info", async () =>
             {
                 return Results.Ok( new ApiInfoModel ("Canalini, Bruno", "v2.0"));
@@ -146,7 +155,10 @@ namespace netcoreAPI.Extensions
                 Description = "Minimal API endpoint"
             });
 
+            //Add SignalR Hub
             app.MapHub<SignalRHub>("/signalhub");
+
+
             return app;
         }
     }
