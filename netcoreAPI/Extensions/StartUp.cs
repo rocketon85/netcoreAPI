@@ -91,6 +91,9 @@ namespace netcoreAPI.Extensions
 
             services.AddScoped<IJwtService, JwtService>();
 
+
+            services.AddAutoMapper(typeof(StartUp));
+
             services.AddAuthorization();
 
             //add JWT as scheme for authentication

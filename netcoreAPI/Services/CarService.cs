@@ -19,10 +19,11 @@ namespace netcoreAPI.Services
             this.carRepository = carRepository;
         }
 
-        public async Task<int?> CreateCar(Car model)
+        public async Task<Car?> CreateCar(Car model)
         {
             this.dbContext.Add<Car>(model);
-            return await this.dbContext.SaveChangesAsync();
+            await this.dbContext.SaveChangesAsync();
+            return model;
         }
     }
 }

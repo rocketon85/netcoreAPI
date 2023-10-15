@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using netcoreAPI.Services;
 using Microsoft.AspNetCore.SignalR;
 using netcoreAPI.Hubs;
+using AutoMapper;
 
 namespace netcoreAPI.Controllers
 {
@@ -21,13 +22,15 @@ namespace netcoreAPI.Controllers
         private readonly CarRepository carRepository;
         private readonly ICarService carService;
         private readonly IHubContext<SignalRHub> hubContext;
+        private readonly IMapper mapper;
 
-        public CarController(ILogger<CarController> logger, CarRepository carRepository, ICarService carService, IHubContext<SignalRHub> hubContext)
+        public CarController(ILogger<CarController> logger, CarRepository carRepository, ICarService carService, IHubContext<SignalRHub> hubContext, IMapper mapper)
         {
             this.logger = logger;
             this.carRepository = carRepository;
             this.carService = carService;
             this.hubContext = hubContext;
+            this.mapper = mapper;
         }
 
 
@@ -42,26 +45,18 @@ namespace netcoreAPI.Controllers
         public async Task<ActionResult<IEnumerable<Car>>> GetAll([FromServices] BrandRepository brandRepository)
         {
             var cars = await this.carRepository.GetAll();
-            var carView = cars.Select(p => new CarViewModel ( p.Id, p.Name, p.Fuel.Name, p.Brand.Name, p.Model.Name )).ToList();
+            var carView = this.mapper.Map<List<CarViewModel>>(cars);
             return carView.Any() ? Ok(carView) : NotFound();
         }
 
         [HttpPost("add")]
         [Authorize(Roles = "admin")]
         public async Task<ActionResult<CarViewModel>> CreateCar([FromBody] CarCreate model)
-        { 
-            var result = await this.carService.CreateCar(
-                new Car
-                {
-                    Name = model.Name ?? "",
-                    BrandId = model.BrandId.GetValueOrDefault(),
-                    ModelId = model.ModelId.GetValueOrDefault(),
-                    FuelId = model.FuelId.GetValueOrDefault()
-                }
-                );
+        {
+            var result = await this.carService.CreateCar(this.mapper.Map<Car>(model));
 
             this.hubContext?.Clients.All.SendCoreAsync("newCar", new[] { "auto nuevo" });
-            return result == 1 ? Ok(model) : BadRequest(result);
+            return result?.Id > 0 ? Ok(this.mapper.Map<CarViewModel>(result)) : BadRequest(result);
         }
     }
 }  

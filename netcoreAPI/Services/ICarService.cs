@@ -6,6 +6,6 @@ namespace netcoreAPI.Services
 {
     public interface ICarService
     {
-        public Task<int?> CreateCar(Car car);
+        public Task<Car?> CreateCar(Car car);
     }
 }
