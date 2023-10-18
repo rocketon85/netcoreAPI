@@ -19,6 +19,9 @@ using netcoreAPI.Models;
 using netcoreAPI.Controllers;
 using Microsoft.AspNetCore.ResponseCompression;
 using netcoreAPI.Hubs;
+using Asp.Versioning;
+using netcoreAPI.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace netcoreAPI.Extensions
 {
@@ -35,34 +38,35 @@ namespace netcoreAPI.Extensions
                                     .AllowAnyHeader());
             });
 
-            //Add Swager Compatibility for Authorization token
-            builder.Services.AddSwaggerGen(options =>
-            {
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                {
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer",
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
-                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
-                });
+           
+            builder.Services.AddSwaggerGen();
 
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
+            //Add Versioning Support
+            /****************************************************************************************/
+            builder.Services.AddApiVersioning(
+                    options =>
                     {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new string[] {}
-                    }
-                });
-            });
+                        // reporting api versions will return the headers
+                        // "api-supported-versions" and "api-deprecated-versions"
+                        options.ReportApiVersions = true;
+                        options.DefaultApiVersion = new ApiVersion(2,0);
+                        options.AssumeDefaultVersionWhenUnspecified = true;
+                        options.Policies.Sunset(1)
+                                        .Effective(DateTimeOffset.Now.AddDays(60));
+                    })
+                .AddMvc()
+                .AddApiExplorer(
+                    options =>
+                    {
+                        // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
+                        // note: the specified format code will format the version as "'v'major[.minor][-status]"
+                        options.GroupNameFormat = "'v'VVV";
+
+                        // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
+                        // can also be used to control the format of the API version in route templates
+                        options.SubstituteApiVersionInUrl = true;
+                    });
+            /****************************************************************************************/
 
             //add serilog for write log to file
             builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger());
@@ -80,7 +84,7 @@ namespace netcoreAPI.Extensions
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
                     new[] { "application/octet-stream" });
             });
-           
+
             //Add AutoMapper Support
             services.AddAutoMapper(typeof(StartUp));
 
@@ -106,6 +110,7 @@ namespace netcoreAPI.Extensions
 
             //Add injections
             /*******************************************************************************/
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddDbContext<AppDbContext>();
 
             services.TryAddTransient<CarRepository, CarRepository>();
@@ -122,7 +127,7 @@ namespace netcoreAPI.Extensions
             return services;
         }
 
-        public static IApplicationBuilder ConfigureAppBuilder(this IApplicationBuilder app)
+        public static IApplicationBuilder ConfigureAppBuilder(this WebApplication app)
         {
             app.UseCors("corsPolicy");
 
@@ -130,6 +135,25 @@ namespace netcoreAPI.Extensions
             app.UseAuthorization();
 
             app.UseMiddleware<JwtMiddleware>();
+
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(
+                    options =>
+                    {
+                        var descriptions = app.DescribeApiVersions();
+
+                        // build a swagger endpoint for each discovered API version
+                        foreach (var description in descriptions)
+                        {
+                            var url = $"/swagger/{description.GroupName}/swagger.json";
+                            var name = description.GroupName.ToUpperInvariant();
+                            options.SwaggerEndpoint(url, name);
+                        }
+                    });
+            }
 
             return app;
         }
@@ -146,12 +170,12 @@ namespace netcoreAPI.Extensions
             //Add Minimal API Example
             app.MapGet("/api/info", async () =>
             {
-                return Results.Ok( new ApiInfoModel ("Canalini, Bruno", "v2.0"));
+                return Results.Ok(new ApiInfoModel("Canalini, Bruno", "v2.0"));
             })
             .Produces<ApiInfoModel>(StatusCodes.Status200OK)
             .WithOpenApi(operation => new(operation)
             {
-                Summary= "API Info",
+                Summary = "API Info",
                 Description = "Minimal API endpoint"
             });
 

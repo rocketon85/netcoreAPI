@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using netcoreAPI.Domain;
 using netcoreAPI.Models;
 using netcoreAPI.Services;
 
@@ -7,7 +9,9 @@ namespace netcoreAPI.Controllers
 {
     [ApiController]
     [Authorize]
-    [Route("[controller]")]
+    [ApiVersion(2.0)]
+    [ApiVersion(1.0, Deprecated = true)]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UserController: ControllerBase
     {
         private readonly ILogger<UserController> logger;
@@ -21,6 +25,9 @@ namespace netcoreAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
+        [ProducesResponseType(typeof(AuthRespModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
         public async Task<ActionResult<AuthRespModel>> Authenticate(AuthRequest model)
         {
             var response = await this.userService.Authenticate(model);

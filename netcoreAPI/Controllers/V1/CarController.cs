@@ -10,13 +10,16 @@ using netcoreAPI.Services;
 using Microsoft.AspNetCore.SignalR;
 using netcoreAPI.Hubs;
 using AutoMapper;
+using Asp.Versioning;
+using System;
 
-namespace netcoreAPI.Controllers
+namespace netcoreAPI.Controllers.V1
 {
     [ApiController]
     [Authorize]
-    [Route("[controller]")]
-    public class CarController: ControllerBase 
+    [ApiVersion(1.0, Deprecated = true)]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    public class CarController : ControllerBase
     {
         private readonly ILogger<CarController> logger;
         private readonly CarRepository carRepository;
@@ -34,29 +37,39 @@ namespace netcoreAPI.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
+        [ProducesResponseType(typeof(Car), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
         public async Task<ActionResult<Car>> Get(int id)
         {
-            var car = await this.carRepository.GetById(id);
+            var car = await carRepository.GetById(id);
             return car != null ? Ok(car) : NotFound(id);
         }
 
         [HttpGet("cars")]
+        [ProducesResponseType(typeof(IEnumerable<Car>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<Car>>> GetAll([FromServices] BrandRepository brandRepository)
         {
-            var cars = await this.carRepository.GetAll();
-            var carView = this.mapper.Map<List<CarViewModel>>(cars);
+            var cars = await carRepository.GetAll();
+            var carView = mapper.Map<List<CarViewModel>>(cars);
             return carView.Any() ? Ok(carView) : NotFound();
         }
 
         [HttpPost("add")]
         [Authorize(Roles = "admin")]
+        [ProducesResponseType(typeof(CarViewModel), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
+        [Consumes("application/json")]
         public async Task<ActionResult<CarViewModel>> CreateCar([FromBody] CarCreate model)
         {
-            var result = await this.carService.CreateCar(this.mapper.Map<Car>(model));
+            var result = await carService.CreateCar(mapper.Map<Car>(model));
 
-            this.hubContext?.Clients.All.SendCoreAsync("newCar", new[] { "auto nuevo" });
-            return result?.Id > 0 ? Ok(this.mapper.Map<CarViewModel>(result)) : BadRequest(result);
+            hubContext?.Clients.All.SendCoreAsync("newCar", new[] { "auto nuevo" });
+            return result?.Id > 0 ? Ok(mapper.Map<CarViewModel>(result)) : BadRequest(result);
         }
     }
-}  
+}
