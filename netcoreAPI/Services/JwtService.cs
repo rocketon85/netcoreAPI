@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using netcoreAPI.Helper;
+using netcoreAPI.Identity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-
-using netcoreAPI.Helper;
-using netcoreAPI.Identity;
 
 namespace netcoreAPI.Services
 {

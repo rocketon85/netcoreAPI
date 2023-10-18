@@ -1,27 +1,20 @@
 ﻿
+using Asp.Versioning;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using netcoreAPI.Dal;
-using netcoreAPI.Domain;
 using netcoreAPI.Helper;
+using netcoreAPI.Hubs;
+using netcoreAPI.Models;
+using netcoreAPI.Options;
 using netcoreAPI.Repository;
 using netcoreAPI.Services;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Serilog;
-using System.Runtime.CompilerServices;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.Options;
-using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Builder.Extensions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.OpenApi.Models;
-using netcoreAPI.Models;
-using netcoreAPI.Controllers;
-using Microsoft.AspNetCore.ResponseCompression;
-using netcoreAPI.Hubs;
-using Asp.Versioning;
-using netcoreAPI.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Text;
 
 namespace netcoreAPI.Extensions
 {

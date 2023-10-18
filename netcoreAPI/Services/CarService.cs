@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using netcoreAPI.Dal;
+﻿using netcoreAPI.Dal;
 using netcoreAPI.Domain;
-using netcoreAPI.Hubs;
-using netcoreAPI.Identity;
-using netcoreAPI.Models;
 using netcoreAPI.Repository;
 
 namespace netcoreAPI.Services

@@ -1,5 +1,4 @@
 using netcoreAPI.Extensions;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
