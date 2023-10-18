@@ -9,7 +9,7 @@ namespace netcoreAPI.Tests
     {
         private readonly UserService service;
         public UserServiceTest() :base() {
-            service = new UserService(new JwtService(Options.Create( StartUp.jwtSettings)), new Repository.UserRepository(StartUp.dbContext));
+            service = new UserService(new JwtService(Microsoft.Extensions.Options.Options.Create( StartUp.jwtSettings)), new Repository.UserRepository(StartUp.dbContext));
         }
 
         [Fact]

@@ -1,8 +1,11 @@
 ﻿namespace netcoreAPI.Models
 {
-    public record CarViewModel(int Id, string Name, string FuelName, string BrandName, string ModelName);
+    public record AuthRequest
+    {
+        public required string? Username { get; set; }
 
-    public record CarCreateModel(int FuelId, int BrandId, int ModelId);
+        public required string? Password { get; set; }
+    }
 
     public record AuthRespModel(int UserId, string Token);
 

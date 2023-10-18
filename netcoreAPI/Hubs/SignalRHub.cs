@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.SignalR;
-using netcoreAPI.Controllers;
-using netcoreAPI.Dal;
-using netcoreAPI.Domain;
-using netcoreAPI.Identity;
-using netcoreAPI.Models;
-using netcoreAPI.Repository;
+﻿using Microsoft.AspNetCore.SignalR;
 
 namespace netcoreAPI.Hubs
 {

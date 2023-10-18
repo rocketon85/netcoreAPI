@@ -1,6 +1,4 @@
 ﻿using netcoreAPI.Domain;
-using netcoreAPI.Identity;
-using netcoreAPI.Models;
 
 namespace netcoreAPI.Services
 {

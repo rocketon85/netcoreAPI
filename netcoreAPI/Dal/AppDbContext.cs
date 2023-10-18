@@ -1,6 +1,6 @@
-﻿using netcoreAPI.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using netcoreAPI.Domain;
 using netcoreAPI.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace netcoreAPI.Dal
 {

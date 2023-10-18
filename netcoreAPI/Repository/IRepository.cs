@@ -1,6 +1,4 @@
-﻿using netcoreAPI.Dal;
-
-namespace netcoreAPI.Repository
+﻿namespace netcoreAPI.Repository
 {
     public interface IRepository<T>
     {
