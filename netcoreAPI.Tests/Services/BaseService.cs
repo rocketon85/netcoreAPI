@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace netcoreAPI.Tests
+namespace netcoreAPI.Tests.Services
 {
-    public class BaseTest
+    public class BaseService
     {
-        public BaseTest()
+        public BaseService()
         {
-            StartUp.SetUp();
+            var startUp = new StartUp();
         }
     }
 }

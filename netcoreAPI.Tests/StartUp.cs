@@ -14,16 +14,27 @@ using netcoreAPI.Helper;
 
 namespace netcoreAPI.Tests
 {
-    internal static class StartUp
+    internal class StartUp
     {
+        private static readonly object _lock = new();
+        public static AppDbContext? dbContext { get; private set; }
 
-        public static AppDbContext dbContext { get; } = new TestDbContext();
+        public static JwtSettings? jwtSettings { get; private set; }
 
-        public static JwtSettings jwtSettings { get; } = new JwtSettings { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
-
-        public static void SetUp()
+        public StartUp()
         {
-           
+            lock (_lock)
+            {
+                if (dbContext == null)
+                {
+                    dbContext = new TestDbContext();
+                    dbContext.Database.EnsureCreated();
+                }
+                if (jwtSettings == null)
+                {
+                    jwtSettings = new JwtSettings { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
+                }
+            }
         }
     }
 }
