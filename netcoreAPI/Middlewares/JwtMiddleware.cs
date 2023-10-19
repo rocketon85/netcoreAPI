@@ -1,6 +1,6 @@
 ﻿using netcoreAPI.Services;
 
-namespace netcoreAPI.Extensions
+namespace netcoreAPI.Middlewares
 {
     public class JwtMiddleware
     {

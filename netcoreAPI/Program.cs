@@ -1,4 +1,5 @@
 using netcoreAPI.Extensions;
+using netcoreAPI.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 //using extension for cammon settings
 builder.ConfigureWebBuilder();
+builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
 
 var app = builder.Build();
 
