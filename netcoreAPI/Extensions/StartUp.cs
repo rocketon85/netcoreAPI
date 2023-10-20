@@ -31,6 +31,9 @@ namespace netcoreAPI.Extensions
 
         public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtSettings jwtSettings)
         {
+            //Add Localization Support
+            services.AddConfigureLocalization();
+
             //Add Cors Policy
             services.AddCors(options =>
             {
@@ -89,6 +92,9 @@ namespace netcoreAPI.Extensions
             app.UseAuthorization();
 
             app.UseMiddleware<JwtMiddleware>();
+
+            var localizeOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(localizeOptions.Value);
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
