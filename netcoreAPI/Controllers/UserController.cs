@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using netcoreAPI.Extensions;
 using netcoreAPI.Models;
 using netcoreAPI.Services;
+using netcoreAPI.Structures;
 
 namespace netcoreAPI.Controllers
 {
@@ -38,7 +40,7 @@ namespace netcoreAPI.Controllers
             var response = await this.userService.Authenticate(model);
 
             if (response == null)
-                return BadRequest(new { message = this.localizer["wrongUserPassword"].Value});
+                return BadRequest(new { message = this.localizer.GetValue<UserLanguage>(new UserLanguage(), "WrongUserPassword") });
 
             return Ok(response);
         }

@@ -1,7 +1,10 @@
 ﻿using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using netcoreAPI.Extensions;
+using netcoreAPI.Structures;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
 
@@ -15,24 +18,28 @@ namespace netcoreAPI.Options
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
         private readonly IApiVersionDescriptionProvider provider;
-
+        private readonly IStringLocalizer<ConfigureSwaggerOptions> localizer;
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigureSwaggerOptions"/> class.
         /// </summary>
         /// <param name="provider">The <see cref="IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => this.provider = provider;
+        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider, IStringLocalizer<ConfigureSwaggerOptions> localizer)
+        {
+            this.provider = provider;
+            this.localizer= localizer;
+        }
 
         /// <inheritdoc />
         public void Configure(SwaggerGenOptions options)
         {
-            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+            options.AddSecurityDefinition(EnviromentSettings.SecuritySchemeAuthentication, new OpenApiSecurityScheme()
             {
-                Name = "Authorization",
+                Name = EnviromentSettings.SecuritySchemeName,
                 Type = SecuritySchemeType.ApiKey,
-                Scheme = "Bearer",
-                BearerFormat = "JWT",
+                Scheme = EnviromentSettings.SecuritySchemeAuthentication,
+                BearerFormat = EnviromentSettings.SecuritySchemeBearerFormat,
                 In = ParameterLocation.Header,
-                Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+                Description = this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "SecuritySchemeDescription"),
             });
 
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -43,7 +50,7 @@ namespace netcoreAPI.Options
                             Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
+                                Id = EnviromentSettings.SecuritySchemeAuthentication
                             }
                         },
                         new string[] {}
@@ -58,29 +65,27 @@ namespace netcoreAPI.Options
             }
         }
 
-        private static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
+        private OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var text = new StringBuilder("NetCore API example, for more information go to https://github.com/rocketon85/netcoreAPI.");
+            var text = new StringBuilder(this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppDescription"));
             var info = new OpenApiInfo()
             {
-                Title = "NetCore API",
+                Title = this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppName"),
                 Version = description.ApiVersion.ToString(),
-                Contact = new OpenApiContact() { Name = "Bruno Canalini", Email = "bncanalini@gmail.com" },
+                Contact = new OpenApiContact() { Name = EnviromentSettings.AppContactName, Email = EnviromentSettings.AppContactMail },
                 License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
             };
 
             if (description.IsDeprecated)
             {
-                text.Append("</br> This API version has been deprecated.");
+                text.Append($"</br> {this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecated")}");
             }
 
             if (description.SunsetPolicy is SunsetPolicy policy)
             {
                 if (policy.Date is DateTimeOffset when)
                 {
-                    text.Append("</br> The API will be sunset on ")
-                        .Append(when.Date.ToShortDateString())
-                        .Append('.');
+                    text.Append($"</br> {this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecatedSunsetOn")} {when.Date.ToShortDateString()}.");
                 }
 
                 if (policy.HasLinks)

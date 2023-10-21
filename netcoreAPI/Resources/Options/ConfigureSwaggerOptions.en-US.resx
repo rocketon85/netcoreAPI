@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="WrongUserPassword" xml:space="preserve">
-    <value>Username or password is incorrect</value>
+  <data name="SecuritySchemeDescription" xml:space="preserve">
+    <value>JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1a2w5d1afffwq5f1rtyuyu1552a3\"</value>
   </data>
 </root>

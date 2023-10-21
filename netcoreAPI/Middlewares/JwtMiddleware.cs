@@ -1,4 +1,5 @@
 ﻿using netcoreAPI.Services;
+using netcoreAPI.Structures;
 
 namespace netcoreAPI.Middlewares
 {
@@ -13,7 +14,7 @@ namespace netcoreAPI.Middlewares
 
         public async Task Invoke(HttpContext context, IUserService userService, IJwtService jwtService)
         {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var token = context.Request.Headers[EnviromentSettings.SecuritySchemeName].FirstOrDefault()?.Split(" ").Last();
             var userId = jwtService.ValidateJwtToken(token);
             if (userId != null)
             {
