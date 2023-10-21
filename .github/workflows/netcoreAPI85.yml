@@ -11,8 +11,8 @@ env:
   AZURE_APIM_SERVICENAME: netcoreAPI
   AZURE_APIM_API_ID: netcoreAPI
   AZURE_APIM_APPSERVICEURL: https://netcoreapi85.azurewebsites.net
-  SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 5.6.3
-  SWASHBUCKLE_DOTNET_CORE_VERSION: 3.1.x
+  SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION: 6.5.0
+  SWASHBUCKLE_DOTNET_CORE_VERSION: 7.0.x
   API_IMPORT_SPECIFICATION_PATH: netcoreAPI\publish\swagger.json
   API_IMPORT_DLL: netcoreAPI\bin\Release\net7.0\netcoreAPI.dll
   API_IMPORT_VERSION: v1
@@ -43,8 +43,8 @@ jobs:
     - name: Install Swashbuckle CLI .NET Global Tool
       run: dotnet tool install --global Swashbuckle.AspNetCore.Cli --version ${{ env.SWASHBUCLE_ASPNET_CORE_CLI_PACKAGE_VERSION }}
       working-directory: ${{ env.WORKING_DIRECTORY }}
-    - name: Generate Open API Specification Document
-      run: swagger tofile --output "${{ env.API_IMPORT_SPECIFICATION_PATH }}" "${{ env.API_IMPORT_DLL }}" "${{ env.API_IMPORT_VERSION }}"
+    #- name: Generate Open API Specification Document
+    #  run: swagger tofile --output "${{ env.API_IMPORT_SPECIFICATION_PATH }}" "${{ env.API_IMPORT_DLL }}" "${{ env.API_IMPORT_VERSION }}"
     - name: Publish Artifacts
       uses: actions/upload-artifact@v1.0.0
       with:
