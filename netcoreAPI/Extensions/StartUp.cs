@@ -21,7 +21,7 @@ namespace netcoreAPI.Extensions
     public static class StartUp
     {
 
-        public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
+        public static void Configure(this WebApplicationBuilder builder)
         {
             //add serilog for write log to file
             builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger());
