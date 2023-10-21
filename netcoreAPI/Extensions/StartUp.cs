@@ -19,7 +19,7 @@ using System.Text;
 
 namespace netcoreAPI.Extensions
 {
-    public static class StartUp
+    public static class StartUp 
     {
         public static void ConfigureProduction()
         {
