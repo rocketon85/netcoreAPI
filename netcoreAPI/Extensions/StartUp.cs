@@ -123,8 +123,8 @@ namespace netcoreAPI.Extensions
             app.UseRequestLocalization(localizeOptions.Value);
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
+            //if (app.Environment.IsDevelopment())
+            //{
                 app.UseSwagger();
                 app.UseSwaggerUI(
                     options =>
@@ -139,7 +139,7 @@ namespace netcoreAPI.Extensions
                             options.SwaggerEndpoint(url, name);
                         }
                     });
-            }
+            //}
 
             return app;
         }
