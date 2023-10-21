@@ -20,8 +20,33 @@ namespace netcoreAPI.Extensions
 {
     public static class StartUp
     {
+        public static void ConfigureProduction()
+        {
+            var builder = WebApplication.CreateBuilder();
 
-        public static void Configure(this WebApplicationBuilder builder)
+            // Add services to the container.
+            builder.Services.AddControllers();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+
+            //using extension for cammon settings
+            builder.ConfigureWebBuilder();
+            builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
+
+            var app = builder.Build();
+
+            app.UseHttpsRedirection();
+            app.MapControllers();
+
+            //using extension for cammon settings
+            app.ConfigureAppBuilder();
+            app.ConfigureMinimal();
+
+            app.Run();
+
+        }
+
+        public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
         {
             //add serilog for write log to file
             builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger());
