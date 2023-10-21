@@ -21,31 +21,31 @@ namespace netcoreAPI.Extensions
 {
     public static class StartUp 
     {
-        public static void ConfigureProduction()
-        {
-            var builder = WebApplication.CreateBuilder();
+        //public static void ConfigureProduction()
+        //{
+        //    var builder = WebApplication.CreateBuilder();
 
-            // Add services to the container.
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
+        //    // Add services to the container.
+        //    builder.Services.AddControllers();
+        //    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        //    builder.Services.AddEndpointsApiExplorer();
 
-            //using extension for cammon settings
-            builder.ConfigureWebBuilder();
-            builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
+        //    //using extension for cammon settings
+        //    builder.ConfigureWebBuilder();
+        //    builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
 
-            var app = builder.Build();
+        //    var app = builder.Build();
 
-            app.UseHttpsRedirection();
-            app.MapControllers();
+        //    app.UseHttpsRedirection();
+        //    app.MapControllers();
 
-            //using extension for cammon settings
-            app.ConfigureAppBuilder();
-            app.ConfigureMinimal();
+        //    //using extension for cammon settings
+        //    app.ConfigureAppBuilder();
+        //    app.ConfigureMinimal();
 
-            app.Run();
+        //    app.Run();
 
-        }
+        //}
 
         public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
         {
