@@ -13,6 +13,7 @@ using netcoreAPI.Options;
 using netcoreAPI.Repository;
 using netcoreAPI.Services;
 using Serilog;
+using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
 
@@ -85,7 +86,7 @@ namespace netcoreAPI.Extensions
 
             //Add Authorization
             services.AddConfigureAuthentication(jwtSettings);
-            
+
 
             //Add injections
             /*******************************************************************************/
