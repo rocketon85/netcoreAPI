@@ -19,6 +19,7 @@ namespace netcoreAPI.Services
         {
             this.dbContext.Add<Car>(model);
             await this.dbContext.SaveChangesAsync();
+            model = await carRepository.GetById(model.Id);
             return model;
         }
     }

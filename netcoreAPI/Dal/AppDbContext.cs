@@ -41,19 +41,19 @@ namespace netcoreAPI.Dal
             );
 
             modelBuilder.Entity<Car>().HasData(
-                new Car() { Id = 1, Name= "Auto 1", BrandId = 1, ModelId = 1, FuelId = 1 },
+                new Car() { Id = 1, Name = "Auto 1", BrandId = 1, ModelId = 1, FuelId = 1 },
                 new Car() { Id = 2, Name = "Auto 2", BrandId = 1, ModelId = 1, FuelId = 2 },
                 new Car() { Id = 3, Name = "Auto 3", BrandId = 1, ModelId = 2, FuelId = 2 }
             );
 
-           // modelBuilder.Entity("BrandModel").HasData(
-           //     new[]
-           //     {
-           //         new { BranModelId = 1, BrandId = 1, ModelId = 1 },
-           //         new { BranModelId = 2, BrandId = 1, ModelId = 2 },
-           //         new { BranModelId = 3, BrandId = 2, ModelId = 3 },
-           //     }
-           //);
+            // modelBuilder.Entity("BrandModel").HasData(
+            //     new[]
+            //     {
+            //         new { BranModelId = 1, BrandId = 1, ModelId = 1 },
+            //         new { BranModelId = 2, BrandId = 1, ModelId = 2 },
+            //         new { BranModelId = 3, BrandId = 2, ModelId = 3 },
+            //     }
+            //);
         }
     }
 }
