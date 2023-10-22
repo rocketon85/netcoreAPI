@@ -7,23 +7,23 @@ namespace netcoreAPI.Extensions
         public int IndexOfCulture;
         public int IndexofUICulture;
 
-        public override Task<ProviderCultureResult> DetermineProviderCultureResult(HttpContext httpContext)
+        public override Task<ProviderCultureResult?> DetermineProviderCultureResult(HttpContext httpContext)
         {
             if (httpContext == null)
-                throw new ArgumentNullException(nameof(httpContext));
+                return Task.FromResult<ProviderCultureResult?>(null);
 
-            string culture = null;
-            string uiCulture = null;
+            string culture = string.Empty;
+            string uiCulture = string.Empty;
 
-            if(httpContext.Request.Path.Value.Split('/').Length > IndexOfCulture)
+            if(httpContext.Request.Path.HasValue && httpContext.Request.Path.Value.Split('/').Length > IndexOfCulture)
             {
-                culture = uiCulture = httpContext.Request.Path.Value.Split('/')[IndexOfCulture]?.ToString();
+                culture = uiCulture = httpContext.Request.Path.Value.Split('/')[IndexOfCulture].ToString();
             }
             
 
             var providerResultCulture = new ProviderCultureResult(culture, uiCulture);
 
-            return Task.FromResult(providerResultCulture);
+            return Task.FromResult<ProviderCultureResult?>(providerResultCulture);
         }
     }
 }

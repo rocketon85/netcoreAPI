@@ -23,7 +23,7 @@ namespace netcoreAPI.Repository
 
         public async Task<Brand?> GetByName(string name)
         {
-            throw new NotImplementedException();
+            return await this.dbContext.Brands.SingleOrDefaultAsync(p => p.Name.ToLowerInvariant() == name.ToLowerInvariant());
         }
     }
 }

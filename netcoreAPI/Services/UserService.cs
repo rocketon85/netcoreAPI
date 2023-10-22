@@ -15,7 +15,7 @@ namespace netcoreAPI.Services
             this.userRepository = userRepository;
         }
 
-        public async Task<AuthRespModel> Authenticate(AuthRequest request)
+        public async Task<AuthRespModel?> Authenticate(AuthRequest request)
         {
             var user = await this.userRepository.Get(request.Username, request.Password);
 

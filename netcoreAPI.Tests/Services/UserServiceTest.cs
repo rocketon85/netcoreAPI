@@ -10,14 +10,14 @@ namespace netcoreAPI.Tests.Services
         private readonly UserService service;
         public UserServiceTest() : base()
         {
-            service = new UserService(new JwtService(Microsoft.Extensions.Options.Options.Create(StartUp.jwtSettings)), new Repository.UserRepository(StartUp.dbContext));
+            service = new UserService(new JwtService(Microsoft.Extensions.Options.Options.Create(StartUp.JwtSettings)), new Repository.UserRepository(StartUp.DbContext));
         }
 
         [Fact]
         public async void Auth()
         {
-            AuthRespModel resp = await service.Authenticate(new AuthRequest { Username = "user", Password = "user" });
-            Assert.True(resp.UserId == 1);
+            AuthRespModel? resp = await service.Authenticate(new AuthRequest { Username = "user", Password = "user" });
+            Assert.True(resp?.UserId == 1);
         }
     }
 }

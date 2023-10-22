@@ -9,11 +9,13 @@ namespace netcoreAPI.Extensions
 {
     public static class AuthenticationExtension
     {
-        public static IServiceCollection AddConfigureAuthentication(this IServiceCollection services, JwtSettings jwtSettings)
+        public static IServiceCollection AddConfigureAuthentication(this IServiceCollection services, JwtSettings? jwtSettings)
         {
             services.AddAuthorization();
 
             //add JWT as scheme for authentication
+            if(jwtSettings == null) return services;
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;

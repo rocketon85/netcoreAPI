@@ -42,10 +42,9 @@ namespace netcoreAPI.Services
 
                 return tokenHandler.WriteToken(token);
             }
-            catch (Exception ex) { 
-            
+            catch (Exception) {
+                throw;
             }
-            return "";
         }
 
         public int? ValidateJwtToken(string? token)

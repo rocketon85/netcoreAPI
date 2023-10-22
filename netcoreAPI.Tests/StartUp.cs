@@ -17,22 +17,22 @@ namespace netcoreAPI.Tests
     internal class StartUp
     {
         private static readonly object _lock = new();
-        public static AppDbContext? dbContext { get; private set; }
+        public static AppDbContext DbContext { get; private set; }
 
-        public static JwtSettings? jwtSettings { get; private set; }
+        public static JwtSettings JwtSettings { get; private set; } 
 
         public StartUp()
         {
             lock (_lock)
             {
-                if (dbContext == null)
+                if (DbContext == null)
                 {
-                    dbContext = new TestDbContext();
-                    dbContext.Database.EnsureCreated();
+                    DbContext = new TestDbContext();
+                    DbContext.Database.EnsureCreated();
                 }
-                if (jwtSettings == null)
+                if (JwtSettings == null)
                 {
-                    jwtSettings = new JwtSettings { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
+                    JwtSettings = new JwtSettings { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
                 }
             }
         }

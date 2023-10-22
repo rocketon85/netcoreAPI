@@ -33,7 +33,7 @@ namespace netcoreAPI.Extensions
                         var userLangs = context.Request.Headers["Accept-Language"].ToString();
                         var firstLang = userLangs.Split(',').FirstOrDefault();
                         var defaultLang = string.IsNullOrEmpty(firstLang) ? "en-US" : firstLang;
-                        return Task.FromResult(new ProviderCultureResult(defaultLang, defaultLang));
+                        return Task.FromResult<ProviderCultureResult?>(new ProviderCultureResult(defaultLang, defaultLang));
                     }));
                 });
 

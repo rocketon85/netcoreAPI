@@ -55,7 +55,7 @@ namespace netcoreAPI.Extensions
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
         }
 
-        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtSettings jwtSettings)
+        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtSettings? jwtSettings)
         {
             //Add Localization Support
             services.AddConfigureLocalization();
@@ -120,7 +120,7 @@ namespace netcoreAPI.Extensions
             app.UseMiddleware<JwtMiddleware>();
 
             var localizeOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(localizeOptions.Value);
+            if(localizeOptions != null)  app.UseRequestLocalization(localizeOptions.Value);
 
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
@@ -156,7 +156,7 @@ namespace netcoreAPI.Extensions
             //Add Minimal API Example
             app.MapGet("/api/info", async () =>
             {
-                return Results.Ok(new ApiInfoModel("Canalini, Bruno", "v2.0"));
+                return await Task.FromResult(Results.Ok(new ApiInfoModel("Canalini, Bruno", "v2.0")));
             })
             .Produces<ApiInfoModel>(StatusCodes.Status200OK)
             .WithOpenApi(operation => new(operation)
