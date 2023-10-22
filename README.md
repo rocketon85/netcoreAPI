@@ -20,11 +20,16 @@ This repository serves as an illustrative example of a .NET Core API that demons
 
 - **Minimal API:** Utilizes Minimal API include only the minimum files, features, and dependencies in ASP.NET Core.
 
- - **Auto Mapper:** Employs AutoMapper to Simplify Object Conversion.
+- **Auto Mapper:** Employs AutoMapper to Simplify Object Conversion.
 
-## Prerequisites
+- **Versioning:** Controller and Models Versioning.
 
-Before you begin, ensure you have met the following requirements:
+- **Localization:** Implements Accept-Language in header for Localization.
 
-- .NET Core SDK [Install .NET Core](https://dotnet.microsoft.com/download)
-- Your preferred code editor (e.g., Visual Studio, Visual Studio Code)
+- **XUnit Test:** Implements XUnit Tests.
+
+- **CI/CD:** Implements GitHub Actions and Azure AppService.
+
+## Deployed
+
+https://netcoreapi85.azurewebsites.net/swagger/index.html?urls.primaryName=V1
