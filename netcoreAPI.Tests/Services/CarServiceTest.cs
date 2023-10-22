@@ -1,16 +1,18 @@
 using Microsoft.Extensions.Options;
+using netcoreAPI.Dal;
 using netcoreAPI.Helper;
 using netcoreAPI.Models;
 using netcoreAPI.Services;
 
 namespace netcoreAPI.Tests.Services
 {
+    [Collection("Database collection")]
     public class CarServiceTest : BaseService
     {
         private readonly CarService service;
-        public CarServiceTest() : base()
+        public CarServiceTest(TestDbContext dbContext) : base(dbContext)
         {
-            service = new CarService(StartUp.DbContext, new Repository.CarRepository(StartUp.DbContext));
+            service = new CarService(this.dbContext, new Repository.CarRepository(this.dbContext));
         }
 
         [Fact]

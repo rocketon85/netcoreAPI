@@ -18,8 +18,9 @@ namespace netcoreAPI.Services
         public async Task<Car?> CreateCar(Car model)
         {
             this.dbContext.Add<Car>(model);
-            await this.dbContext.SaveChangesAsync();
-            model = await carRepository.GetById(model.Id);
+            int result = await this.dbContext.SaveChangesAsync();
+            //model = await carRepository.GetById(model.Id);
+            var car = this.dbContext.Cars.SingleOrDefault(p=> p.Id == model.Id);
             return model;
         }
     }
