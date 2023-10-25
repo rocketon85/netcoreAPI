@@ -1,9 +1,7 @@
 ﻿using Asp.Versioning;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using netcoreAPI.Dal;
 using netcoreAPI.Helper;
 using netcoreAPI.Hubs;
@@ -13,40 +11,15 @@ using netcoreAPI.Options;
 using netcoreAPI.Repository;
 using netcoreAPI.Services;
 using Serilog;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Text;
+using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OData.ModelBuilder;
 
 namespace netcoreAPI.Extensions
 {
-    public static class StartUp 
+    public static class StartUp
     {
-        //public static void ConfigureProduction()
-        //{
-        //    var builder = WebApplication.CreateBuilder();
-
-        //    // Add services to the container.
-        //    builder.Services.AddControllers();
-        //    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        //    builder.Services.AddEndpointsApiExplorer();
-
-        //    //using extension for cammon settings
-        //    builder.ConfigureWebBuilder();
-        //    builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>());
-
-        //    var app = builder.Build();
-
-        //    app.UseHttpsRedirection();
-        //    app.MapControllers();
-
-        //    //using extension for cammon settings
-        //    app.ConfigureAppBuilder();
-        //    app.ConfigureMinimal();
-
-        //    app.Run();
-
-        //}
-
         public static void ConfigureWebBuilder(this WebApplicationBuilder builder)
         {
             //add serilog for write log to file
@@ -57,6 +30,10 @@ namespace netcoreAPI.Extensions
 
         public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtSettings? jwtSettings)
         {
+            
+            services.AddControllers()
+            .AddOData(options => options.EnableQueryFeatures(null));
+
             //Add Localization Support
             services.AddConfigureLocalization();
 
@@ -101,7 +78,7 @@ namespace netcoreAPI.Extensions
             services.TryAddTransient<UserRepository, UserRepository>();
             services.TryAddTransient<BrandRepository, BrandRepository>();
 
-            
+
             services.TryAddTransient<IUserService, UserService>();
             services.TryAddTransient<ICarService, CarService>();
             services.AddScoped<IJwtService, JwtService>();
@@ -120,25 +97,25 @@ namespace netcoreAPI.Extensions
             app.UseMiddleware<JwtMiddleware>();
 
             var localizeOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
-            if(localizeOptions != null)  app.UseRequestLocalization(localizeOptions.Value);
+            if (localizeOptions != null) app.UseRequestLocalization(localizeOptions.Value);
 
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
-                app.UseSwagger();
-                app.UseSwaggerUI(
-                    options =>
-                    {
-                        var descriptions = app.DescribeApiVersions();
+            app.UseSwagger();
+            app.UseSwaggerUI(
+                options =>
+                {
+                    var descriptions = app.DescribeApiVersions();
 
-                        // build a swagger endpoint for each discovered API version
-                        foreach (var description in descriptions)
-                        {
-                            var url = $"/swagger/{description.GroupName}/swagger.json";
-                            var name = description.GroupName.ToUpperInvariant();
-                            options.SwaggerEndpoint(url, name);
-                        }
-                    });
+                    // build a swagger endpoint for each discovered API version
+                    foreach (var description in descriptions)
+                    {
+                        var url = $"/swagger/{description.GroupName}/swagger.json";
+                        var name = description.GroupName.ToUpperInvariant();
+                        options.SwaggerEndpoint(url, name);
+                    }
+                });
             //}
 
             return app;

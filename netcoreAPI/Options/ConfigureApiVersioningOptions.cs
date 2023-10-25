@@ -1,9 +1,5 @@
 ﻿using Asp.Versioning;
-using Asp.Versioning.ApiExplorer;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Text;
 
 namespace netcoreAPI.Options
 {
@@ -17,6 +13,10 @@ namespace netcoreAPI.Options
                 options.DefaultApiVersion = new ApiVersion(2, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.Policies.Sunset(1).Effective(DateTimeOffset.Now.AddDays(60));
+                // allow multiple locations to request an api version
+                //options.ApiVersionReader = ApiVersionReader.Combine(
+                //    new QueryStringApiVersionReader(),
+                //    new HeaderApiVersionReader("api-version", "x-ms-version"));
         }
 
     }
