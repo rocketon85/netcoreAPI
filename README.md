@@ -20,6 +20,8 @@ This repository serves as an illustrative example of a .NET Core API that demons
 
 - **Minimal API:** Utilizes Minimal API include only the minimum files, features, and dependencies in ASP.NET Core.
 
+- **OData Support:** Utilizes OData for interacting with data via RESTful interfaces.
+
 - **Auto Mapper:** Employs AutoMapper to Simplify Object Conversion.
 
 - **Versioning:** Controller and Models Versioning.
@@ -33,3 +35,9 @@ This repository serves as an illustrative example of a .NET Core API that demons
 ## Deployed
 
 https://netcoreapi85.azurewebsites.net/swagger/index.html?urls.primaryName=V1
+
+## Create Token
+
+
+## OData Example
+https://netcoreapi85.azurewebsites.net/api/odata/v3/car/cars?$filter=Id eq 1 or Id eq 3&$select=name
