@@ -32,12 +32,30 @@ This repository serves as an illustrative example of a .NET Core API that demons
 
 - **CI/CD:** Implements GitHub Actions and Azure AppService.
 
+- **Encryptor:** Implements password encryptor.
+
 ## Deployed
 
 https://netcoreapi85.azurewebsites.net/swagger/index.html?urls.primaryName=V1
 
 ## Create Token
+https://netcoreapi85.azurewebsites.net/api/v1/user/authenticate
 
+for admin rights
+```ruby
+{
+  "username": "admin",
+  "password": "admin123"
+}
+```
+
+for user right
+```ruby
+{
+  "username": "user",
+  "password": "user123"
+}
+```
 
 ## OData Example
 https://netcoreapi85.azurewebsites.net/api/odata/v3/car/cars?$filter=Id eq 1 or Id eq 3&$select=name
