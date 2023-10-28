@@ -1,6 +1,6 @@
-﻿namespace netcoreAPI.Helper
+﻿namespace netcoreAPI.Options
 {
-    public class JwtSettings
+    public class ConfigureJwt
     {
         public required string Key { get; set; }
         public required string Issuer { get; set; }

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using netcoreAPI.Dal;
-using netcoreAPI.Helper;
 using netcoreAPI.Hubs;
 using netcoreAPI.Middlewares;
 using netcoreAPI.Models;
@@ -15,6 +14,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.ModelBuilder;
+using netcoreAPI.Helper;
 
 namespace netcoreAPI.Extensions
 {
@@ -25,10 +25,11 @@ namespace netcoreAPI.Extensions
             //add serilog for write log to file
             builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger());
 
-            builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+            builder.Services.Configure<ConfigureJwt>(builder.Configuration.GetSection("JwtSettings"));
+            builder.Services.Configure<ConfigureSecurity>(builder.Configuration.GetSection("SecuritySettings"));
         }
 
-        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtSettings? jwtSettings)
+        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, ConfigureJwt? jwtSettings)
         {
             
             services.AddControllers()
@@ -69,10 +70,12 @@ namespace netcoreAPI.Extensions
             /*******************************************************************************/
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddTransient<IConfigureOptions<ApiVersioningOptions>, ConfigureApiVersioningOptions>();
+            services.TryAddTransient<EncryptorHelper, EncryptorHelper>();
 
             services.TryAddTransient<ISignalRHub, SignalRHub>();
 
             services.AddDbContext<AppDbContext>();
+            
 
             services.TryAddTransient<CarRepository, CarRepository>();
             services.TryAddTransient<UserRepository, UserRepository>();

@@ -1,7 +1,6 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using netcoreAPI.Helper;
 using netcoreAPI.Options;
 using System.Text;
 
@@ -9,7 +8,7 @@ namespace netcoreAPI.Extensions
 {
     public static class AuthenticationExtension
     {
-        public static IServiceCollection AddConfigureAuthentication(this IServiceCollection services, JwtSettings? jwtSettings)
+        public static IServiceCollection AddConfigureAuthentication(this IServiceCollection services, ConfigureJwt? jwtSettings)
         {
             services.AddAuthorization();
 

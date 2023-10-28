@@ -1,10 +1,10 @@
 ﻿using netcoreAPI.Dal;
-using netcoreAPI.Helper;
+using netcoreAPI.Options;
 
 namespace netcoreAPI.Tests.Options
 {
     [CollectionDefinition("JwtSettings collection")]
-    public class JwtSettingsCollection : ICollectionFixture<JwtSettings>
+    public class JwtSettingsCollection : ICollectionFixture<ConfigureJwt>
     {
     }
 }

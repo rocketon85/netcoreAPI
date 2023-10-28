@@ -1,16 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using netcoreAPI.Domain;
+using netcoreAPI.Helper;
 using netcoreAPI.Identity;
 
 namespace netcoreAPI.Dal
 {
     public class AppDbContext : DbContext
     {
+        private EncryptorHelper helperEncryptor;
+
         public DbSet<Fuel> Fuel { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Model> Models { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<User> Users { get; set; }
+
+        public AppDbContext(EncryptorHelper helperEncryptor)
+        {
+            this.helperEncryptor = helperEncryptor;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,8 +28,8 @@ namespace netcoreAPI.Dal
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-              new User() { Id = 1, Name = "Admin", Password="admin123" },
-              new User() { Id = 2, Name = "User" , Password="user123"}
+              new User() { Id = 1, Name = "Admin", Password= this.helperEncryptor.EncryptString("admin123") },
+              new User() { Id = 2, Name = "User" , Password= this.helperEncryptor.EncryptString("user123") }
             );
 
             modelBuilder.Entity<Fuel>().HasData(

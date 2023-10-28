@@ -1,6 +1,8 @@
 ﻿using netcoreAPI.Identity;
 using netcoreAPI.Models;
 using netcoreAPI.Repository;
+using System.Collections;
+using System.Security.Claims;
 
 namespace netcoreAPI.Services
 {
@@ -23,7 +25,7 @@ namespace netcoreAPI.Services
             if (user == null) return null;
 
             // authentication successful so generate jwt token
-            var token = jwtService.GenerateJwtToken(user);
+            var token = jwtService.GenerateJwtToken(user, await GetClaims(user));
 
             return await Task<AuthRespModel>.FromResult(new AuthRespModel ( user.Id, token ));
         }
@@ -31,6 +33,24 @@ namespace netcoreAPI.Services
         public async Task<User?> GetById(int id)
         {
             return await this.userRepository.GetById(id);
+        }
+
+        public async Task<Claim[]> GetClaims(User user)
+        {
+            if(user.Name.ToLower() == "admin")
+            {
+                return await Task<Claim[]>.FromResult(new []
+                {
+                    new Claim(ClaimTypes.Role, "admin")
+                });
+            }
+            else
+            {
+                return await Task<Claim[]>.FromResult(new[]
+                {
+                    new Claim(ClaimTypes.Role, "user")
+                });
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using netcoreAPI.Helper;
 using netcoreAPI.Identity;
+using netcoreAPI.Options;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -10,31 +10,30 @@ namespace netcoreAPI.Services
 {
     public class JwtService : IJwtService
     {
-        private readonly JwtSettings jwtSettings;
+        private readonly ConfigureJwt configJwt;
 
-        public JwtService(IOptions<JwtSettings> jwtSettings)
+        public JwtService(IOptions<ConfigureJwt> configJwt)
         {
-            this.jwtSettings = jwtSettings.Value;
+            this.configJwt = configJwt.Value;
 
-            if (string.IsNullOrEmpty(this.jwtSettings.Key))
+            if (string.IsNullOrEmpty(this.configJwt.Key))
                 throw new Exception("JWT secret not configured");
         }
 
-        public string GenerateJwtToken(User user)
+        public string GenerateJwtToken(User user, Claim[] claims)
         {
             try
             {
                 // generate token that is valid for 7 days
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(this.jwtSettings.Key!);
+                var key = Encoding.ASCII.GetBytes(this.configJwt.Key!);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new[] {
-                    new Claim("id", user.Id.ToString()) ,
-                    new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(ClaimTypes.Role, "admin"),
-                }),
+                        new Claim("id", user.Id.ToString()) ,
+                        new Claim(ClaimTypes.Name, user.Name),
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    }.Concat(claims)),
                     Expires = DateTime.UtcNow.AddDays(7),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
@@ -53,7 +52,7 @@ namespace netcoreAPI.Services
                 return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(this.jwtSettings.Key!);
+            var key = Encoding.ASCII.GetBytes(this.configJwt.Key!);
             try
             {
                 tokenHandler.ValidateToken(token, new TokenValidationParameters
