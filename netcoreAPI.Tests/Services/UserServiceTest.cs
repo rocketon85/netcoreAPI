@@ -13,7 +13,7 @@ namespace netcoreAPI.Tests.Services
         private readonly UserService service;
         private readonly EncryptorHelper helperEncryptor;
         private readonly ConfigureJwt configJwt = new ConfigureJwt { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
-        private readonly ConfigureSecurity configSecurity = new ConfigureSecurity { Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx"};
+        private readonly ConfigureSecurity configSecurity = new ConfigureSecurity { Key = "E546C8DF278CD5931069B522E695D4F2" };
         public UserServiceTest(TestDbContext dbContext) : base(dbContext)
         {
             helperEncryptor = new EncryptorHelper(Microsoft.Extensions.Options.Options.Create(this.configSecurity));
@@ -23,7 +23,7 @@ namespace netcoreAPI.Tests.Services
         [Fact]
         public async void Auth()
         {
-            AuthRespModel? resp = await service.Authenticate(new AuthRequest { Username = "user", Password = "user" });
+            AuthRespModel? resp = await service.Authenticate(new AuthRequest { Username = "user", Password = "user123" });
             Assert.True(resp?.UserId == 1);
         }
     }

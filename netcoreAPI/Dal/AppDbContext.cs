@@ -7,7 +7,7 @@ namespace netcoreAPI.Dal
 {
     public class AppDbContext : DbContext
     {
-        private EncryptorHelper helperEncryptor;
+        protected EncryptorHelper helperEncryptor;
 
         public DbSet<Fuel> Fuel { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -15,6 +15,10 @@ namespace netcoreAPI.Dal
         public DbSet<Car> Cars { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public AppDbContext()
+        {
+
+        }
         public AppDbContext(EncryptorHelper helperEncryptor)
         {
             this.helperEncryptor = helperEncryptor;

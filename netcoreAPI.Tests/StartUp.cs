@@ -11,6 +11,7 @@ using netcoreAPI.Identity;
 using System.Xml;
 using Moq.EntityFrameworkCore;
 using netcoreAPI.Options;
+using netcoreAPI.Helper;
 
 namespace netcoreAPI.Tests
 {
