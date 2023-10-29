@@ -13,7 +13,7 @@ namespace netcoreAPI.Hubs
         //define all methods that the hub listens to
         public async Task SendAll(string message)
         {
-            await this.Clients.Others.SendCoreAsync("Send", new[] { message });
+            await Clients.Others.SendCoreAsync("Send", new[] { message });
         }
     }
 }

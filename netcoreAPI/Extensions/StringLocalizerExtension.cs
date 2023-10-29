@@ -2,7 +2,7 @@
 
 namespace netcoreAPI.Extensions
 {
-    public static class StringLocalizer
+    public static class StringLocalizerExtension
     {
         public static string GetValue<T>(this IStringLocalizer localizer, T element, string field)
         {

@@ -1,7 +1,7 @@
-﻿namespace netcoreAPI.Extensions
+﻿namespace netcoreAPI.Options
 {
     //if we want to add support localization in route
-    public class LanguageRouteConstraint : IRouteConstraint
+    public class LanguageRouteOption : IRouteConstraint
     {
         public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
         {

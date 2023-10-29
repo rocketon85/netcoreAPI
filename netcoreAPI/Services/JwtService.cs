@@ -10,13 +10,13 @@ namespace netcoreAPI.Services
 {
     public class JwtService : IJwtService
     {
-        private readonly ConfigureJwt configJwt;
+        private readonly JwtOption _configJwt;
 
-        public JwtService(IOptions<ConfigureJwt> configJwt)
+        public JwtService(IOptions<JwtOption> configJwt)
         {
-            this.configJwt = configJwt.Value;
+            _configJwt = configJwt.Value;
 
-            if (string.IsNullOrEmpty(this.configJwt.Key))
+            if (string.IsNullOrEmpty(_configJwt.Key))
                 throw new Exception("JWT secret not configured");
         }
 
@@ -26,7 +26,7 @@ namespace netcoreAPI.Services
             {
                 // generate token that is valid for 7 days
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(this.configJwt.Key!);
+                var key = Encoding.ASCII.GetBytes(_configJwt.Key!);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new[] {
@@ -41,7 +41,8 @@ namespace netcoreAPI.Services
 
                 return tokenHandler.WriteToken(token);
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 throw;
             }
         }
@@ -52,7 +53,7 @@ namespace netcoreAPI.Services
                 return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(this.configJwt.Key!);
+            var key = Encoding.ASCII.GetBytes(_configJwt.Key!);
             try
             {
                 tokenHandler.ValidateToken(token, new TokenValidationParameters

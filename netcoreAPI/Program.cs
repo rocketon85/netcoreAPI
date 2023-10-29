@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 //using extension for cammon settings
 builder.ConfigureWebBuilder();
-builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<ConfigureJwt>());
+builder.Services.ConfigureDefaultServices(builder.Configuration.GetSection("JwtSettings").Get<JwtOption>());
 
 var app = builder.Build();
 

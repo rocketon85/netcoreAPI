@@ -1,7 +1,5 @@
-using Microsoft.Extensions.Options;
-using netcoreAPI.Dal;
-using netcoreAPI.Helper;
-using netcoreAPI.Models;
+using netcoreAPI.Context;
+using netcoreAPI.Domains;
 using netcoreAPI.Services;
 
 namespace netcoreAPI.Tests.Services
@@ -9,16 +7,16 @@ namespace netcoreAPI.Tests.Services
     [Collection("Database collection")]
     public class CarServiceTest : BaseService
     {
-        private readonly CarService service;
+        private readonly CarService _carService;
         public CarServiceTest(TestDbContext dbContext) : base(dbContext)
         {
-            service = new CarService(this.dbContext, new Repository.CarRepository(this.dbContext));
+            _carService = new CarService(DbContext, new Repositories.CarRepository(DbContext));
         }
 
         [Fact]
         public async void CreateCar()
         {
-            Domain.Car? resp = await service.CreateCar(new Domain.Car { BrandId = 1, ModelId = 1, Name = "Auto Nuevo" });
+            CarDomain? resp = await _carService.CreateCar(new CarDomain { BrandId = 1, ModelId = 1, Name = "Auto Nuevo" });
             Assert.True(resp?.Id > 0);
         }
     }

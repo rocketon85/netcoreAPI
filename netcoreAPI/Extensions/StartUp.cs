@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using netcoreAPI.Dal;
+using netcoreAPI.Context;
 using netcoreAPI.Hubs;
 using netcoreAPI.Middlewares;
 using netcoreAPI.Models;
 using netcoreAPI.Options;
-using netcoreAPI.Repository;
+using netcoreAPI.Repositories;
 using netcoreAPI.Services;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -25,13 +25,13 @@ namespace netcoreAPI.Extensions
             //add serilog for write log to file
             builder.Logging.AddSerilog(new LoggerConfiguration().WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger());
 
-            builder.Services.Configure<ConfigureJwt>(builder.Configuration.GetSection("JwtSettings"));
-            builder.Services.Configure<ConfigureSecurity>(builder.Configuration.GetSection("SecuritySettings"));
+            builder.Services.Configure<JwtOption>(builder.Configuration.GetSection("JwtSettings"));
+            builder.Services.Configure<SecurityOption>(builder.Configuration.GetSection("SecuritySettings"));
         }
 
-        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, ConfigureJwt? jwtSettings)
+        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtOption? jwtSettings)
         {
-            
+
             services.AddControllers()
             .AddOData(options => options.EnableQueryFeatures(null));
 
@@ -68,14 +68,14 @@ namespace netcoreAPI.Extensions
 
             //Add injections
             /*******************************************************************************/
-            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-            services.AddTransient<IConfigureOptions<ApiVersioningOptions>, ConfigureApiVersioningOptions>();
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOption>();
+            services.AddTransient<IConfigureOptions<ApiVersioningOptions>, ApiVersioningOption>();
             services.TryAddTransient<EncryptorHelper, EncryptorHelper>();
 
             services.TryAddTransient<ISignalRHub, SignalRHub>();
 
             services.AddDbContext<AppDbContext>();
-            
+
 
             services.TryAddTransient<CarRepository, CarRepository>();
             services.TryAddTransient<UserRepository, UserRepository>();

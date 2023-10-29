@@ -1,4 +1,4 @@
-﻿namespace netcoreAPI.Repository
+﻿namespace netcoreAPI.Repositories
 {
     public interface IRepository<T>
     {

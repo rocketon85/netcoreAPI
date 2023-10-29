@@ -23,6 +23,6 @@
     public struct UserLanguage
     {
         public const string WrongUserPassword = "Username or password is incorrect";
-      
+
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace netcoreAPI.Domain
+﻿namespace netcoreAPI.Domains
 {
-    public class Car:Vehicle
+    public class CarDomain : VehicleDomain
     {
         public int Doors { get; set; }
         public bool HasGraffiti { get; set; }

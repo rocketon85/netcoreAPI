@@ -1,17 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using netcoreAPI.Dal;
-using Moq;
-using netcoreAPI.Identity;
-using System.Xml;
-using Moq.EntityFrameworkCore;
+﻿using netcoreAPI.Context;
 using netcoreAPI.Options;
-using netcoreAPI.Helper;
 
 namespace netcoreAPI.Tests
 {
@@ -20,7 +8,7 @@ namespace netcoreAPI.Tests
         private static readonly object _lock = new();
         public static AppDbContext DbContext { get; private set; }
 
-        public static ConfigureJwt JwtSettings { get; private set; } 
+        public static JwtOption JwtOption { get; private set; }
 
         public StartUp()
         {
@@ -31,9 +19,9 @@ namespace netcoreAPI.Tests
                     DbContext = new TestDbContext();
                     DbContext.Database.EnsureCreated();
                 }
-                if (JwtSettings == null)
+                if (JwtOption == null)
                 {
-                    JwtSettings = new ConfigureJwt { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
+                    JwtOption = new JwtOption { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
                 }
             }
         }

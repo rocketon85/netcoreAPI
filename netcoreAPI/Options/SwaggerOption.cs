@@ -15,18 +15,18 @@ namespace netcoreAPI.Options
     /// </summary>
     /// <remarks>This allows API versioning to define a Swagger document per API version after the
     /// <see cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
-    public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
+    public class SwaggerOption : IConfigureOptions<SwaggerGenOptions>
     {
-        private readonly IApiVersionDescriptionProvider provider;
-        private readonly IStringLocalizer<ConfigureSwaggerOptions> localizer;
+        private readonly IApiVersionDescriptionProvider _provider;
+        private readonly IStringLocalizer<SwaggerOption> _localizer;
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigureSwaggerOptions"/> class.
+        /// Initializes a new instance of the <see cref="SwaggerOption"/> class.
         /// </summary>
         /// <param name="provider">The <see cref="IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider, IStringLocalizer<ConfigureSwaggerOptions> localizer)
+        public SwaggerOption(IApiVersionDescriptionProvider provider, IStringLocalizer<SwaggerOption> localizer)
         {
-            this.provider = provider;
-            this.localizer= localizer;
+            _provider = provider;
+            _localizer = localizer;
         }
 
         /// <inheritdoc />
@@ -39,7 +39,7 @@ namespace netcoreAPI.Options
                 Scheme = EnviromentSettings.SecuritySchemeAuthentication,
                 BearerFormat = EnviromentSettings.SecuritySchemeBearerFormat,
                 In = ParameterLocation.Header,
-                Description = this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "SecuritySchemeDescription"),
+                Description = _localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "SecuritySchemeDescription"),
             });
 
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -59,7 +59,7 @@ namespace netcoreAPI.Options
 
             // add a swagger document for each discovered API version
             // note: you might choose to skip or document deprecated API versions differently
-            foreach (var description in provider.ApiVersionDescriptions)
+            foreach (var description in _provider.ApiVersionDescriptions)
             {
                 options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
             }
@@ -67,10 +67,10 @@ namespace netcoreAPI.Options
 
         private OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var text = new StringBuilder(this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppDescription"));
+            var text = new StringBuilder(_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppDescription"));
             var info = new OpenApiInfo()
             {
-                Title = this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppName"),
+                Title = _localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppName"),
                 Version = description.ApiVersion.ToString(),
                 Contact = new OpenApiContact() { Name = EnviromentSettings.AppContactName, Email = EnviromentSettings.AppContactMail },
                 License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
@@ -78,14 +78,14 @@ namespace netcoreAPI.Options
 
             if (description.IsDeprecated)
             {
-                text.Append($"</br> {this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecated")}");
+                text.Append($"</br> {_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecated")}");
             }
 
             if (description.SunsetPolicy is SunsetPolicy policy)
             {
                 if (policy.Date is DateTimeOffset when)
                 {
-                    text.Append($"</br> {this.localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecatedSunsetOn")} {when.Date.ToShortDateString()}.");
+                    text.Append($"</br> {_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecatedSunsetOn")} {when.Date.ToShortDateString()}.");
                 }
 
                 if (policy.HasLinks)

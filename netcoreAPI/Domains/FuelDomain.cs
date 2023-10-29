@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace netcoreAPI.Domain
+namespace netcoreAPI.Domains
 {
-    public class Fuel
+    public class FuelDomain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

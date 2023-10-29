@@ -2,7 +2,7 @@
 
 namespace netcoreAPI.Models
 {
-    public class CarCreate
+    public class CarCreateModel
     {
         [Required]
         public string? Name { get; set; }

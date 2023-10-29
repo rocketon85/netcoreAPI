@@ -1,6 +1,6 @@
 ﻿namespace netcoreAPI.Options
 {
-    public class ConfigureSecurity
+    public class SecurityOption
     {
         public required string Key { get; set; }
     }

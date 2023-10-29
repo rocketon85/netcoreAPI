@@ -1,8 +1,7 @@
 ﻿using Asp.Versioning;
 using Asp.Versioning.OData;
 using Microsoft.OData.ModelBuilder;
-using netcoreAPI.Domain;
-using System;
+using netcoreAPI.Domains;
 
 namespace netcoreAPI.Models.Configuration
 {
@@ -16,10 +15,9 @@ namespace netcoreAPI.Models.Configuration
 
         private static void ConfigureV2(ODataModelBuilder builder) => ConfigureCurrent(builder).Ignore(p => p.HasGraffiti);
 
-        private static EntityTypeConfiguration<Car> ConfigureCurrent(ODataModelBuilder builder)
+        private static EntityTypeConfiguration<CarDomain> ConfigureCurrent(ODataModelBuilder builder)
         {
-            var car = builder.EntitySet<Car>("CarModel").EntityType;
-
+            var car = builder.EntitySet<CarDomain>("CarModel").EntityType;
             car.HasKey(p => p.Id);
 
             return car;

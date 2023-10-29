@@ -1,9 +1,9 @@
-﻿using netcoreAPI.Domain;
+﻿using netcoreAPI.Domains;
 
 namespace netcoreAPI.Services
 {
     public interface ICarService
     {
-        public Task<Car?> CreateCar(Car car);
+        public Task<CarDomain?> CreateCar(CarDomain car);
     }
 }

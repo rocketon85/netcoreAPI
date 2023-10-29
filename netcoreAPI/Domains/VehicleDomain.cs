@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace netcoreAPI.Domain
+namespace netcoreAPI.Domains
 {
-    public class Vehicle
+    public class VehicleDomain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,14 +13,14 @@ namespace netcoreAPI.Domain
 
         [ForeignKey("Fuel")]
         public int FuelId { get; set; }
-        public Fuel Fuel { get; set; } 
+        public FuelDomain Fuel { get; set; }
 
         [ForeignKey("Brand")]
         public int BrandId { get; set; }
-        public Brand Brand { get; set; }
+        public BrandDomain Brand { get; set; }
 
         [ForeignKey("Model")]
         public int ModelId { get; set; }
-        public Model Model { get; set; }
+        public ModelDomain Model { get; set; }
     }
 }

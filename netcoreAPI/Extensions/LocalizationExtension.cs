@@ -1,12 +1,5 @@
-﻿using Asp.Versioning;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Localization.Routing;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.IdentityModel.Tokens;
-using netcoreAPI.Helper;
-using netcoreAPI.Options;
+﻿using Microsoft.AspNetCore.Localization;
 using System.Globalization;
-using System.Text;
 
 namespace netcoreAPI.Extensions
 {
@@ -37,11 +30,11 @@ namespace netcoreAPI.Extensions
                     }));
                 });
 
-                //if we want to add support localization in route
-                //services.Configure<RouteOptions>(options =>
-                //{
-                //    options.ConstraintMap.Add("culture", typeof(LanguageRouteConstraint));
-                //});
+            //if we want to add support localization in route
+            //services.Configure<RouteOptions>(options =>
+            //{
+            //    options.ConstraintMap.Add("culture", typeof(LanguageRouteOption));
+            //});
 
             return services;
         }

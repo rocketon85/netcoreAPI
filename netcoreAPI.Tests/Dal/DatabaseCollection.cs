@@ -1,4 +1,4 @@
-﻿using netcoreAPI.Dal;
+﻿using netcoreAPI.Context;
 
 namespace netcoreAPI.Tests.Dal
 {

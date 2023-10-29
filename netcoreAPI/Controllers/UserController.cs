@@ -16,18 +16,17 @@ namespace netcoreAPI.Controllers
     //if we want to add support localization in route
     //[Route("api/v{version:apiVersion}/{culture:culture}/[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class UserController: ControllerBase
+    public class UserController : ControllerBase
     {
-        private readonly IStringLocalizer<UserController> localizer;
-
-        private readonly ILogger<UserController> logger;
-        private readonly IUserService userService;
+        private readonly IStringLocalizer<UserController> _localizer;
+        private readonly ILogger<UserController> _logger;
+        private readonly IUserService _userService;
 
         public UserController(ILogger<UserController> logger, IStringLocalizer<UserController> localizer, IUserService userService)
         {
-            this.localizer = localizer;
-            this.logger = logger;
-            this.userService = userService;
+            _localizer = localizer;
+            _logger = logger;
+            _userService = userService;
         }
 
         [AllowAnonymous]
@@ -37,13 +36,11 @@ namespace netcoreAPI.Controllers
         [Produces("application/json")]
         public async Task<ActionResult<AuthRespModel>> Authenticate(AuthRequest model)
         {
-            var response = await this.userService.Authenticate(model);
+            var response = await _userService.Authenticate(model);
 
             if (response == null)
-                return BadRequest(new { message = this.localizer.GetValue<UserLanguage>(new UserLanguage(), "WrongUserPassword") });
-
+                return BadRequest(new { message = _localizer.GetValue<UserLanguage>(new UserLanguage(), "WrongUserPassword") });
             return Ok(response);
         }
-
     }
 }

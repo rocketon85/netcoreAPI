@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
 using netcoreAPI.Options;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,16 +7,16 @@ namespace netcoreAPI.Helper
 {
     public class EncryptorHelper
     {
-        private readonly ConfigureSecurity configSecurity;
+        private readonly SecurityOption _securityOption;
 
-        public EncryptorHelper(IOptions<ConfigureSecurity> configSecurity)
+        public EncryptorHelper(IOptions<SecurityOption> securityOption)
         {
-            this.configSecurity = configSecurity.Value;
+            _securityOption = securityOption.Value;
         }
 
         public string EncryptString(string text)
         {
-            var key = Encoding.UTF8.GetBytes(this.configSecurity.Key);
+            var key = Encoding.UTF8.GetBytes(_securityOption.Key);
 
             using (var aesAlg = Aes.Create())
             {
@@ -55,7 +54,7 @@ namespace netcoreAPI.Helper
 
             Buffer.BlockCopy(fullCipher, 0, iv, 0, iv.Length);
             Buffer.BlockCopy(fullCipher, iv.Length, cipher, 0, iv.Length);
-            var key = Encoding.UTF8.GetBytes(this.configSecurity.Key);
+            var key = Encoding.UTF8.GetBytes(_securityOption.Key);
 
             using (var aesAlg = Aes.Create())
             {
