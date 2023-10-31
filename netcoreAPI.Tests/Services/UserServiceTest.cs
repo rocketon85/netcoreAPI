@@ -3,6 +3,7 @@ using netcoreAPI.Helper;
 using netcoreAPI.Models;
 using netcoreAPI.Options;
 using netcoreAPI.Services;
+using netcoreAPI.Tests.Collections;
 
 namespace netcoreAPI.Tests.Services
 {
@@ -11,10 +12,12 @@ namespace netcoreAPI.Tests.Services
     {
         private readonly UserService _userService;
         private readonly EncryptorHelper _helperEncryptor;
-        private readonly JwtOption _jwtOption = new JwtOption { Audience = "JWTServicePostmanClient", Issuer = "JWTAuthenticationServer", Key = "Yh2k7QSu4l8CZg5p6X3Pna9L0Miy4D3Bvt0JVr87UcOj69Kqw5R2Nmf4FWs03Hdx", Subject = "JWTServiceAccessToken" };
-        private readonly SecurityOption _securityOption = new SecurityOption { Key = "E546C8DF278CD5931069B522E695D4F2" };
-        public UserServiceTest(TestDbContext dbContext) : base(dbContext)
+        private readonly JwtOption _jwtOption;
+        private readonly SecurityOption _securityOption;
+        public UserServiceTest(StartUp enviroment) : base(enviroment.DbContextContext)
         {
+            _jwtOption = enviroment.JwtOption;
+            _securityOption = enviroment.SecurityOption;
             _helperEncryptor = new EncryptorHelper(Microsoft.Extensions.Options.Options.Create(_securityOption));
             _userService = new UserService(new JwtService(Microsoft.Extensions.Options.Options.Create(_jwtOption)), new Repositories.UserRepository(DbContext, _helperEncryptor));
         }

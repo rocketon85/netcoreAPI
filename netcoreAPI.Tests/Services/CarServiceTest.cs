@@ -1,14 +1,16 @@
 using netcoreAPI.Context;
 using netcoreAPI.Domains;
+using netcoreAPI.Options;
 using netcoreAPI.Services;
+using netcoreAPI.Tests.Collections;
 
 namespace netcoreAPI.Tests.Services
 {
-    [Collection("Database collection")]
+    [Collection("Enviroment collection")]
     public class CarServiceTest : BaseService
     {
         private readonly CarService _carService;
-        public CarServiceTest(TestDbContext dbContext) : base(dbContext)
+        public CarServiceTest(StartUp enviroment) : base(enviroment.DbContextContext)
         {
             _carService = new CarService(DbContext, new Repositories.CarRepository(DbContext));
         }

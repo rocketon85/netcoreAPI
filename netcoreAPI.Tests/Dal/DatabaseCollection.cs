@@ -3,7 +3,7 @@
 namespace netcoreAPI.Tests.Dal
 {
     [CollectionDefinition("Database collection")]
-    public class JwtSettingsCollection : ICollectionFixture<TestDbContext>
+    public class DbSettingsCollection : ICollectionFixture<TestDbContext>
     {
     }
 }

@@ -2,13 +2,14 @@
 
 namespace netcoreAPI.Tests.Services
 {
-    [Collection("Database collection")]
+    [Collection("Enviroment collection")]
     public class BaseService
     {
         protected readonly AppDbContext DbContext;
         public BaseService(TestDbContext dbContext)
         {
             DbContext = dbContext;
+            //var startUp = new StartUp();
         }
     }
 }
