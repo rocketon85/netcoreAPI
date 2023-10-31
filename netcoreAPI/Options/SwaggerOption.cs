@@ -39,7 +39,7 @@ namespace netcoreAPI.Options
                 Scheme = EnviromentSettings.SecuritySchemeAuthentication,
                 BearerFormat = EnviromentSettings.SecuritySchemeBearerFormat,
                 In = ParameterLocation.Header,
-                Description = _localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "SecuritySchemeDescription"),
+                Description = _localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), EnviromentLanguage.FieldSecuritySchemeDescription),
             });
 
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -67,10 +67,10 @@ namespace netcoreAPI.Options
 
         private OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var text = new StringBuilder(_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppDescription"));
+            var text = new StringBuilder(_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), EnviromentLanguage.FieldAppDescription));
             var info = new OpenApiInfo()
             {
-                Title = _localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppName"),
+                Title = _localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), EnviromentLanguage.FieldAppName),
                 Version = description.ApiVersion.ToString(),
                 Contact = new OpenApiContact() { Name = EnviromentSettings.AppContactName, Email = EnviromentSettings.AppContactMail },
                 License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
@@ -78,14 +78,14 @@ namespace netcoreAPI.Options
 
             if (description.IsDeprecated)
             {
-                text.Append($"</br> {_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecated")}");
+                text.Append($"</br> {_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), EnviromentLanguage.FieldAppVersionDeprecated)}");
             }
 
             if (description.SunsetPolicy is SunsetPolicy policy)
             {
                 if (policy.Date is DateTimeOffset when)
                 {
-                    text.Append($"</br> {_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), "AppVersionDeprecatedSunsetOn")} {when.Date.ToShortDateString()}.");
+                    text.Append($"</br> {_localizer.GetValue<EnviromentLanguage>(new EnviromentLanguage(), EnviromentLanguage.FieldAppVersionDeprecatedSunsetOn)} {when.Date.ToShortDateString()}.");
                 }
 
                 if (policy.HasLinks)

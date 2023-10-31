@@ -39,7 +39,7 @@ namespace netcoreAPI.Controllers
             var response = await _userService.Authenticate(model);
 
             if (response == null)
-                return BadRequest(new { message = _localizer.GetValue<UserLanguage>(new UserLanguage(), "WrongUserPassword") });
+                return BadRequest(new { message = _localizer.GetValue<UserLanguage>(new UserLanguage(), UserLanguage.FieldWrongUserPassword) });
             return Ok(response);
         }
     }

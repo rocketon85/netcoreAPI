@@ -27,16 +27,17 @@ namespace netcoreAPI.Extensions
 
             builder.Services.Configure<JwtOption>(builder.Configuration.GetSection("JwtSettings"));
             builder.Services.Configure<SecurityOption>(builder.Configuration.GetSection("SecuritySettings"));
+            builder.Services.Configure<EnviromentOption>(builder.Configuration.GetSection("EnviromentSettings"));
         }
 
-        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtOption? jwtSettings)
+        public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtOption? jwtSettings, EnviromentOption? envSettings)
         {
 
             services.AddControllers()
             .AddOData(options => options.EnableQueryFeatures(null));
 
             //Add Localization Support
-            services.AddConfigureLocalization();
+            services.AddConfigureLocalization(envSettings);
 
             //Add Cors Policy
             services.AddCors(options =>

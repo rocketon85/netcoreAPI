@@ -8,6 +8,7 @@ using netcoreAPI.Hubs;
 using netcoreAPI.Models.V2;
 using netcoreAPI.Repositories;
 using netcoreAPI.Services;
+using netcoreAPI.Structures;
 
 namespace netcoreAPI.Controllers.V2
 {
@@ -62,7 +63,7 @@ namespace netcoreAPI.Controllers.V2
         public async Task<ActionResult<CarViewModel>> CreateCar([FromBody] CarCreateModel model)
         {
             var result = await _carService.CreateCar(_mapper.Map<CarDomain>(model));
-            _hubContext?.Clients.All.SendCoreAsync("newCar", new[] { "auto nuevo" });
+            _hubContext?.Clients.All.SendCoreAsync(HubMessages.NewCar, new[] { model });
             return result?.Id > 0 ? Ok(_mapper.Map<CarViewModel>(result)) : BadRequest(result);
         }
     }

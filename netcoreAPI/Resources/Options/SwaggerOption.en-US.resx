@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>NetCore API example, for more information go to https://github.com/rocketon85/netcoreAPI.</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>NetCore API</value>
+  </data>
+  <data name="AppVersionDeprecated" xml:space="preserve">
+    <value>This API version has been deprecated.</value>
+  </data>
+  <data name="AppVersionDeprecatedSunsetOn" xml:space="preserve">
+    <value>The API will be sunset on</value>
+  </data>
   <data name="SecuritySchemeDescription" xml:space="preserve">
     <value>JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1a2w5d1afffwq5f1rtyuyu1552a3\"</value>
   </data>
