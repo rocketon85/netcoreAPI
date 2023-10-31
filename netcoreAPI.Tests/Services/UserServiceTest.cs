@@ -7,7 +7,7 @@ using netcoreAPI.Tests.Collections;
 
 namespace netcoreAPI.Tests.Services
 {
-    [Collection("Database collection")]
+    [Collection("Enviroment collection")]
     public class UserServiceTest : BaseService
     {
         private readonly UserService _userService;
