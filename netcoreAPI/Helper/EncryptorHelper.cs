@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using netcoreAPI.Options;
+using netcoreAPI.Services;
+using netcoreAPI.Structures;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,10 +10,15 @@ namespace netcoreAPI.Helper
     public class EncryptorHelper
     {
         private readonly SecurityOption _securityOption;
+        private readonly IAzureKeyVaultService _azureKeyVaultService;
 
-        public EncryptorHelper(IOptions<SecurityOption> securityOption)
+        public EncryptorHelper(IOptions<SecurityOption> securityOption, IAzureKeyVaultService azureKeyVaultService)
         {
             _securityOption = securityOption.Value;
+            _azureKeyVaultService = azureKeyVaultService;
+#if !DEBUG
+            _securityOption.Key = _azureKeyVaultService.GetSecret(AzureSecrets.EncryptKey);
+#endif
         }
 
         public string EncryptString(string text)
