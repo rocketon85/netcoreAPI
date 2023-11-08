@@ -28,11 +28,13 @@ This repository serves as an illustrative example of a .NET Core API that demons
 
 - **Localization:** Implements Accept-Language in header for Localization.
 
-- **XUnit Test:** Implements XUnit Tests.
+- **XUnit Test:** Implements XUnit Tests. Using Moq for emualte Services.
 
 - **CI/CD:** Implements GitHub Actions and Azure AppService.
 
 - **Encryptor:** Implements password encryptor.
+
+- **Azure KeyVault:** Access to Azure KeyVaults Secrets for EncKey and JwtKey.
 
 ## Deployed
 
