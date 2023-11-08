@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using netcoreAPI.Identity;
 using netcoreAPI.Options;
+using netcoreAPI.Structures;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -11,11 +12,15 @@ namespace netcoreAPI.Services
     public class JwtService : IJwtService
     {
         private readonly JwtOption _configJwt;
+        private readonly IAzureKeyVaultService _azureKeyVaultService;
 
-        public JwtService(IOptions<JwtOption> configJwt)
+        public JwtService(IOptions<JwtOption> configJwt, IAzureKeyVaultService azureKeyVaultService)
         {
             _configJwt = configJwt.Value;
-
+            _azureKeyVaultService = azureKeyVaultService;
+#if !DEBUG
+            _configJwt.Key = _azureKeyVaultService.GetSecret(AzureSecrets.JWTKey);
+#endif
             if (string.IsNullOrEmpty(_configJwt.Key))
                 throw new Exception("JWT secret not configured");
         }

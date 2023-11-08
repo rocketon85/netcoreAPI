@@ -18,8 +18,8 @@ namespace netcoreAPI.Tests.Services
         {
             _jwtOption = enviroment.JwtOption;
             _securityOption = enviroment.SecurityOption;
-            _helperEncryptor = new EncryptorHelper(Microsoft.Extensions.Options.Options.Create(_securityOption));
-            _userService = new UserService(new JwtService(Microsoft.Extensions.Options.Options.Create(_jwtOption)), new Repositories.UserRepository(DbContext, _helperEncryptor));
+            _helperEncryptor = new EncryptorHelper(Microsoft.Extensions.Options.Options.Create(_securityOption), enviroment.AzureKeyVaultService);
+            _userService = new UserService(new JwtService(Microsoft.Extensions.Options.Options.Create(_jwtOption), enviroment.AzureKeyVaultService), new Repositories.UserRepository(DbContext, _helperEncryptor));
         }
 
         [Fact]

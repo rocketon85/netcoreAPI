@@ -1,9 +1,13 @@
 ﻿using Asp.Versioning;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using netcoreAPI.Extensions;
 using netcoreAPI.Models;
+using netcoreAPI.Options;
 using netcoreAPI.Services;
 using netcoreAPI.Structures;
 
@@ -22,11 +26,13 @@ namespace netcoreAPI.Controllers
         private readonly ILogger<UserController> _logger;
         private readonly IUserService _userService;
 
-        public UserController(ILogger<UserController> logger, IStringLocalizer<UserController> localizer, IUserService userService)
+        public UserController(ILogger<UserController> logger, IStringLocalizer<UserController> localizer, IUserService userService, IOptions<AzureOption> azureOption)
         {
             _localizer = localizer;
             _logger = logger;
             _userService = userService;
+
+            
         }
 
         [AllowAnonymous]

@@ -28,11 +28,12 @@ namespace netcoreAPI.Extensions
             builder.Services.Configure<JwtOption>(builder.Configuration.GetSection("JwtSettings"));
             builder.Services.Configure<SecurityOption>(builder.Configuration.GetSection("SecuritySettings"));
             builder.Services.Configure<EnviromentOption>(builder.Configuration.GetSection("EnviromentSettings"));
+            builder.Services.Configure<AzureOption>(builder.Configuration.GetSection("AzureSettings"));
         }
 
         public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtOption? jwtSettings, EnviromentOption? envSettings)
         {
-
+            
             services.AddControllers()
             .AddOData(options => options.EnableQueryFeatures(null));
 
@@ -71,7 +72,8 @@ namespace netcoreAPI.Extensions
             /*******************************************************************************/
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOption>();
             services.AddTransient<IConfigureOptions<ApiVersioningOptions>, ApiVersioningOption>();
-            services.TryAddTransient<EncryptorHelper, EncryptorHelper>();
+            services.AddSingleton<IAzureKeyVaultService, AzureKeyVaultService>();
+            services.AddSingleton<EncryptorHelper, EncryptorHelper>();
 
             services.TryAddTransient<ISignalRHub, SignalRHub>();
 
@@ -85,7 +87,7 @@ namespace netcoreAPI.Extensions
 
             services.TryAddTransient<IUserService, UserService>();
             services.TryAddTransient<ICarService, CarService>();
-            services.AddScoped<IJwtService, JwtService>();
+            services.AddSingleton<IJwtService, JwtService>();
             /*******************************************************************************/
 
             return services;
