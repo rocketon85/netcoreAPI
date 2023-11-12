@@ -9,11 +9,13 @@ namespace netcoreAPI.Services
     {
         private readonly IJwtService _jwtService;
         private readonly UserRepository _userRepository;
+        private readonly IAzureFuncService _azureFuncService;
 
-        public UserService(IJwtService jwtService, UserRepository userRepository)
+        public UserService(IJwtService jwtService, UserRepository userRepository, IAzureFuncService azureFuncService)
         {
             _jwtService = jwtService;
             _userRepository = userRepository;
+            _azureFuncService = azureFuncService;
         }
 
         public async Task<AuthRespModel?> Authenticate(AuthRequest request)
@@ -22,7 +24,8 @@ namespace netcoreAPI.Services
 
             // return null if user not found
             if (user == null) return null;
-
+            //trigger the Azure Function to retrieve specific user data.
+            user.Detail = await _azureFuncService.FuncGetUserDetail(user.Id);
             // authentication successful so generate jwt token
             var token = _jwtService.GenerateJwtToken(user, await GetClaims(user));
 

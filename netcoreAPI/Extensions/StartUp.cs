@@ -73,21 +73,21 @@ namespace netcoreAPI.Extensions
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOption>();
             services.AddTransient<IConfigureOptions<ApiVersioningOptions>, ApiVersioningOption>();
             services.AddSingleton<IAzureKeyVaultService, AzureKeyVaultService>();
+            services.AddSingleton<IAzureFuncService, AzureFuncService>();
             services.AddSingleton<EncryptorHelper, EncryptorHelper>();
 
             services.TryAddTransient<ISignalRHub, SignalRHub>();
 
             services.AddDbContext<AppDbContext>();
 
+            services.AddSingleton<IJwtService, JwtService>();
 
             services.TryAddTransient<CarRepository, CarRepository>();
             services.TryAddTransient<UserRepository, UserRepository>();
             services.TryAddTransient<BrandRepository, BrandRepository>();
 
-
             services.TryAddTransient<IUserService, UserService>();
             services.TryAddTransient<ICarService, CarService>();
-            services.AddSingleton<IJwtService, JwtService>();
             /*******************************************************************************/
 
             return services;
