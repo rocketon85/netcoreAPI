@@ -51,7 +51,7 @@ namespace netcoreAPI.Context
                 new CarDomain() { Id = 1, Name = "Auto 1", BrandId = 1, ModelId = 1, FuelId = 1 },
                 new CarDomain() { Id = 2, Name = "Auto 2", BrandId = 1, ModelId = 1, FuelId = 2 },
                 new CarDomain() { Id = 3, Name = "Auto 3", BrandId = 1, ModelId = 2, FuelId = 2 }
-            );
+            ); 
         }
     }
 }

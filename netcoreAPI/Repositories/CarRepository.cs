@@ -17,11 +17,7 @@ namespace netcoreAPI.Repositories
                 .Include(p => p.Model)
                 .Include(p => p.Brand)
                 .Include(p => p.Fuel)
-                .Select(p => new CarDomain
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                })
+                .Select(p => p)
                 .ToListAsync();
         }
 
