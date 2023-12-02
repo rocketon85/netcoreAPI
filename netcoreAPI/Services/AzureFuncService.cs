@@ -28,16 +28,31 @@ namespace netcoreAPI.Services
 
         public async Task<string> FuncNewCar(CarDomain data)
         {
-            var response = await _httpClient.PostAsJsonAsync<dynamic,CarDomain>($"{_configAzure.FunctionsUrl.NewCar}", data);
-            if (!response.IsSuccessStatusCode) return "";
-            return await response.Content.ReadAsStringAsync();
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync<dynamic, CarDomain>($"{_configAzure.FunctionsUrl.NewCar}", data);
+                if (!response.IsSuccessStatusCode) return "";
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch(Exception ex)
+            {
+                return "";
+            }
         }
 
         public async Task<string> FuncGetUserDetail(int userId)
         {
-            var response = await _httpClient.GetAsync($"{_configAzure.FunctionsUrl.GetUserDetail}?userId={userId}");
-            if (!response.IsSuccessStatusCode) return "";
-            return await response.Content.ReadAsStringAsync();
+            try
+            {
+                var response = await _httpClient.GetAsync($"{_configAzure.FunctionsUrl.GetUserDetail}?userId={userId}");
+                if (!response.IsSuccessStatusCode) return "";
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch(Exception ex)
+            {
+                return "";
+            }
+           
         }
     }
 }
