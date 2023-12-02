@@ -20,6 +20,8 @@ namespace netcoreAPI.Tests.Collections
         public SecurityOption SecurityOption { get; private set; }
 
         public IAzureKeyVaultService AzureKeyVaultService { get; set; }
+
+        public IAzureFuncService AzureFunctionService { get; set; }
         public StartUp()
         {
             DbContextContext = new TestDbContext();
@@ -32,12 +34,19 @@ namespace netcoreAPI.Tests.Collections
             JwtOption = config.GetSection("JwtSettings").Get<JwtOption>();
             SecurityOption = config.GetSection("SecuritySettings").Get<SecurityOption>();
             
-            var mockAzureService = new Mock<IAzureKeyVaultService>();
+            var mockAzureKeyVault = new Mock<IAzureKeyVaultService>();
 
-            mockAzureService.Setup<string>(x => x.GetSecret(AzureSecrets.JWTKey)).Returns(JwtOption.Key);
-            mockAzureService.Setup(x => x.GetSecret(AzureSecrets.EncryptKey)).Returns(SecurityOption.Key);
+            mockAzureKeyVault.Setup<string>(x => x.GetSecret(AzureSecrets.JWTKey)).Returns(JwtOption.Key);
+            mockAzureKeyVault.Setup(x => x.GetSecret(AzureSecrets.EncryptKey)).Returns(SecurityOption.Key);
 
-            AzureKeyVaultService = mockAzureService.Object;
+            AzureKeyVaultService = mockAzureKeyVault.Object;
+
+            var mockAzureFunction = new Mock<IAzureFuncService>();
+
+            mockAzureFunction.Setup<Task<string>>(x => x.FuncGetUserDetail(0)).Returns(Task<string>.FromResult("user detail"));
+            mockAzureFunction.Setup<Task<string>>(x => x.FuncNewCar(new Domains.CarDomain())).Returns(Task<string>.FromResult("new car added"));
+
+            AzureFunctionService = mockAzureFunction.Object;
         }
     }
 }

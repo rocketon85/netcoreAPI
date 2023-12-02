@@ -12,7 +12,7 @@ namespace netcoreAPI.Tests.Services
         private readonly CarService _carService;
         public CarServiceTest(StartUp enviroment) : base(enviroment.DbContextContext)
         {
-            _carService = new CarService(DbContext, new Repositories.CarRepository(DbContext));
+            _carService = new CarService(DbContext, new Repositories.CarRepository(DbContext), enviroment.AzureFunctionService);
         }
 
         [Fact]
