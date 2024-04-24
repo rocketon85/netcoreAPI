@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.SignalR;
 using netcoreAPI.Domains;
 using netcoreAPI.Hubs;
 using netcoreAPI.Repositories;
-using netcoreAPI.Services;
 
 namespace netcoreAPI.Controllers.OData
 {
@@ -16,19 +15,17 @@ namespace netcoreAPI.Controllers.OData
     [Route("api/odata/v{version:apiVersion}/car")]
     public class CarController : ODataController
     {
-        private readonly ILogger<CarController> _logger;
-        private readonly CarRepository _carRepository;
-        private readonly ICarService _carService;
-        private readonly IHubContext<SignalRHub> _hubContext;
-        private readonly IMapper _mapper;
+        private readonly ILogger<CarController> logger;
+        private readonly IRepositoryWrapper repository;
+        private readonly IHubContext<SignalRHub> hubContext;
+        private readonly IMapper mapper;
 
-        public CarController(ILogger<CarController> logger, CarRepository carRepository, ICarService carService, IHubContext<SignalRHub> hubContext, IMapper mapper)
+        public CarController(ILogger<CarController> logger, IRepositoryWrapper repository, IHubContext<SignalRHub> hubContext, IMapper mapper)
         {
-            _logger = logger;
-            _carRepository = carRepository;
-            _carService = carService;
-            _hubContext = hubContext;
-            _mapper = mapper;
+            this.logger = logger;
+            this.repository = repository;
+            this.hubContext = hubContext;
+            this.mapper = mapper;
         }
 
         [EnableQuery]
@@ -38,7 +35,7 @@ namespace netcoreAPI.Controllers.OData
         [Produces("application/json")]
         public ActionResult<IQueryable<CarDomain>> Get(ODataQueryOptions<CarDomain> options, ApiVersion version)
         {
-            var cars = _carRepository.GetAllQueryable();
+            var cars = repository.Car.FindAll();
             return cars != null ? Ok(cars) : NotFound(1);
         }
     }

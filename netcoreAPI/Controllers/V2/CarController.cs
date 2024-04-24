@@ -3,11 +3,11 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using netcoreAPI.Domains;
 using netcoreAPI.Hubs;
 using netcoreAPI.Models.V2;
 using netcoreAPI.Repositories;
-using netcoreAPI.Services;
 using netcoreAPI.Structures;
 
 namespace netcoreAPI.Controllers.V2
@@ -19,18 +19,16 @@ namespace netcoreAPI.Controllers.V2
     public class CarController : ControllerBase
     {
         private readonly ILogger<CarController> logger;
-        private readonly CarRepository carRepository;
-        private readonly ICarService carService;
+        private readonly IRepositoryWrapper repository;
         private readonly IHubContext<SignalRHub> hubContext;
         private readonly IMapper mapper;
 
-        public CarController(ILogger<CarController> logger, CarRepository carRepository, ICarService carService, IHubContext<SignalRHub> hubContext, IMapper mapper)
+        public CarController(ILogger<CarController> logger, IRepositoryWrapper repository, IHubContext<SignalRHub> hubContext, IMapper mapper)
         {
-            logger = logger;
-            carRepository = carRepository;
-            carService = carService;
-            hubContext = hubContext;
-            mapper = mapper;
+            this.logger = logger;
+            this.repository = repository;
+            this.hubContext = hubContext;
+            this.mapper = mapper;
         }
 
         [HttpGet("{id:int}")]
@@ -39,7 +37,7 @@ namespace netcoreAPI.Controllers.V2
         [Produces("application/json")]
         public async Task<ActionResult<CarViewModel>> Get(int id)
         {
-            var car = await carRepository.GetById(id);
+            var car = await repository.Car.FindByCondition(p=> p.Id == id).FirstOrDefaultAsync();
             return car != null ? Ok(mapper.Map<CarViewModel>(car)) : NotFound(id);
         }
 
@@ -49,7 +47,7 @@ namespace netcoreAPI.Controllers.V2
         [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<CarViewModel>>> GetAll([FromServices] BrandRepository brandRepository)
         {
-            var cars = await carRepository.GetAll();
+            var cars = await repository.Car.FindAll().ToListAsync();
             var carView = mapper.Map<List<CarViewModel>>(cars);
             return carView.Any() ? Ok(carView) : NotFound();
         }
@@ -62,9 +60,11 @@ namespace netcoreAPI.Controllers.V2
         [Consumes("application/json")]
         public async Task<ActionResult<CarViewModel>> CreateCar([FromBody] CarCreateModel model)
         {
-            var result = await carService.CreateCar(mapper.Map<CarDomain>(model));
+            //var result = await repository.Car.Create(mapper.Map<CarDomain>(model));
+            var domain = mapper.Map<CarDomain>(model);
+            await repository.Car.CreateAsync(domain);
             hubContext?.Clients.All.SendCoreAsync(HubMessages.NewCar, new[] { model });
-            return result?.Id > 0 ? Ok(mapper.Map<CarViewModel>(result)) : BadRequest(result);
+            return domain.Id > 0 ? Ok(mapper.Map<CarViewModel>(domain)) : BadRequest(domain);
         }
     }
 }

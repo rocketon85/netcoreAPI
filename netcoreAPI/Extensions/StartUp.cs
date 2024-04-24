@@ -1,8 +1,10 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using netcoreAPI.Context;
+using netcoreAPI.Helper;
 using netcoreAPI.Hubs;
 using netcoreAPI.Middlewares;
 using netcoreAPI.Models;
@@ -11,10 +13,6 @@ using netcoreAPI.Repositories;
 using netcoreAPI.Services;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.AspNetCore.OData;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OData.ModelBuilder;
-using netcoreAPI.Helper;
 
 namespace netcoreAPI.Extensions
 {
@@ -33,7 +31,7 @@ namespace netcoreAPI.Extensions
 
         public static IServiceCollection ConfigureDefaultServices(this IServiceCollection services, JwtOption? jwtSettings, EnviromentOption? envSettings)
         {
-            
+
             services.AddControllers()
             .AddOData(options => options.EnableQueryFeatures(null));
 
@@ -74,7 +72,7 @@ namespace netcoreAPI.Extensions
             services.AddTransient<IConfigureOptions<ApiVersioningOptions>, ApiVersioningOption>();
             services.AddSingleton<IAzureKeyVaultService, AzureKeyVaultService>();
             services.AddSingleton<IAzureFuncService, AzureFuncService>();
-            services.AddSingleton<EncryptorHelper, EncryptorHelper>();
+            services.AddSingleton<IEncryptorHelper, EncryptorHelper>();
 
             services.TryAddTransient<ISignalRHub, SignalRHub>();
 
@@ -82,12 +80,7 @@ namespace netcoreAPI.Extensions
 
             services.AddSingleton<IJwtService, JwtService>();
 
-            services.TryAddTransient<CarRepository, CarRepository>();
-            services.TryAddTransient<UserRepository, UserRepository>();
-            services.TryAddTransient<BrandRepository, BrandRepository>();
-
-            services.TryAddTransient<IUserService, UserService>();
-            services.TryAddTransient<ICarService, CarService>();
+            services.TryAddTransient<IRepositoryWrapper, RepositoryWrapper>();
             /*******************************************************************************/
 
             return services;
@@ -100,7 +93,9 @@ namespace netcoreAPI.Extensions
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseMiddleware<ExceptionHandlerMiddleware>(); 
             app.UseMiddleware<JwtMiddleware>();
+            
 
             var localizeOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
             if (localizeOptions != null) app.UseRequestLocalization(localizeOptions.Value);

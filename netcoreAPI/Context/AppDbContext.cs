@@ -7,7 +7,7 @@ namespace netcoreAPI.Context
 {
     public class AppDbContext : DbContext
     {
-        protected EncryptorHelper? HelperEncryptor;
+        protected IEncryptorHelper? HelperEncryptor;
         public DbSet<FuelDomain> Fuel { get; set; }
         public DbSet<BrandDomain> Brands { get; set; }
         public DbSet<ModelDomain> Models { get; set; }
@@ -18,7 +18,7 @@ namespace netcoreAPI.Context
         {
 
         }
-        public AppDbContext(EncryptorHelper helperEncryptor)
+        public AppDbContext(IEncryptorHelper helperEncryptor)
         {
             HelperEncryptor = helperEncryptor;
         }

@@ -1,6 +1,4 @@
 ﻿using Asp.Versioning;
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -8,7 +6,7 @@ using Microsoft.Extensions.Options;
 using netcoreAPI.Extensions;
 using netcoreAPI.Models;
 using netcoreAPI.Options;
-using netcoreAPI.Services;
+using netcoreAPI.Repositories;
 using netcoreAPI.Structures;
 
 namespace netcoreAPI.Controllers
@@ -17,22 +15,20 @@ namespace netcoreAPI.Controllers
     [Authorize]
     [ApiVersion(2.0)]
     [ApiVersion(1.0, Deprecated = true)]
-    //if we want to add support localization in route
+    //add support localization in route
     //[Route("api/v{version:apiVersion}/{culture:culture}/[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IStringLocalizer<UserController> _localizer;
-        private readonly ILogger<UserController> _logger;
-        private readonly IUserService _userService;
-
-        public UserController(ILogger<UserController> logger, IStringLocalizer<UserController> localizer, IUserService userService, IOptions<AzureOption> azureOption)
+        private readonly IStringLocalizer<UserController> localizer;
+        private readonly ILogger<UserController> logger;
+        private readonly IRepositoryWrapper repository;
+         
+        public UserController(ILogger<UserController> logger, IStringLocalizer<UserController> localizer, IRepositoryWrapper repository, IOptions<AzureOption> azureOption)
         {
-            _localizer = localizer;
-            _logger = logger;
-            _userService = userService;
-
-            
+            this.localizer = localizer;
+            this.logger = logger;
+            this.repository = repository;
         }
 
         [AllowAnonymous]
@@ -42,10 +38,10 @@ namespace netcoreAPI.Controllers
         [Produces("application/json")]
         public async Task<ActionResult<AuthRespModel>> Authenticate(AuthRequest model)
         {
-            var response = await _userService.Authenticate(model);
-
+            var response = await repository.User.Authenticate(model);
+            
             if (response == null)
-                return BadRequest(new { message = _localizer.GetValue<UserLanguage>(new UserLanguage(), UserLanguage.FieldWrongUserPassword) });
+                return BadRequest(new { message = localizer.GetValue<UserLanguage>(new UserLanguage(), UserLanguage.FieldWrongUserPassword) });
             return Ok(response);
         }
     }

@@ -2,35 +2,61 @@
 using netcoreAPI.Context;
 using netcoreAPI.Helper;
 using netcoreAPI.Identity;
+using netcoreAPI.Models;
+using netcoreAPI.Services;
+using System.Security.Claims;
 
 namespace netcoreAPI.Repositories
 {
-    public class UserRepository : BaseRepository, IRepository<User>
+    public class UserRepository : RepositoryBase<User>, IUserRepository
     {
-        private EncryptorHelper _helperEncryptor;
-        public UserRepository(AppDbContext dbContext, EncryptorHelper helperEncryptor) : base(dbContext)
+        private readonly IEncryptorHelper helperEncryptor;
+        private readonly IJwtService jwtService;
+        private readonly IAzureFuncService azureFuncService;
+
+        public UserRepository(AppDbContext repositoryContext, IEncryptorHelper helperEncryptor,
+            IAzureFuncService azureFuncService, IJwtService jwtService) : base(repositoryContext)
         {
-            _helperEncryptor = helperEncryptor;
+            this.helperEncryptor = helperEncryptor;
+            this.jwtService = jwtService;
+            this.azureFuncService = azureFuncService;
         }
 
-        public async Task<IEnumerable<User>> GetAll()
+        private async Task<Claim[]> GetClaims(User user)
         {
-            return await DbContext.Users.ToListAsync();
+            if (user.Name.ToLower() == "admin")
+            {
+                return await Task<Claim[]>.FromResult(new[]
+                {
+                    new Claim(ClaimTypes.Role, "admin")
+                });
+            }
+            else
+            {
+                return await Task<Claim[]>.FromResult(new[]
+                {
+                    new Claim(ClaimTypes.Role, "user")
+                });
+            }
         }
 
-        public async Task<User?> Get(string name, string password)
-        {
-            return await DbContext.Users.SingleOrDefaultAsync(p => p.Name.ToLower() == name.ToLower() && _helperEncryptor.DecryptString(p.Password) == password);
-        }
+        //public async Task<User?> Get(string name, string password)
+        //{
+        //    return await FindByCondition(p => p.Name.ToLower() == name.ToLower() && helperEncryptor.DecryptString(p.Password) == password).SingleOrDefaultAsync();
+        //}
 
-        public async Task<User?> GetById(int id)
+        public async Task<AuthRespModel?> Authenticate(AuthRequest request)
         {
-            return await DbContext.Users.SingleOrDefaultAsync(p => p.Id == id);
-        }
+            var user = await FindByCondition(p => p.Name.ToLower() == request.Username.ToLower() && helperEncryptor.DecryptString(p.Password) == request.Password).SingleOrDefaultAsync();
 
-        public Task<User?> GetByName(string name)
-        {
-            throw new NotImplementedException();
+            // return null if user not found
+            if (user == null) return null;
+            //trigger the Azure Function to retrieve specific user data.
+            user.Detail = await azureFuncService.FuncGetUserDetail(user.Id);
+            // authentication successful so generate jwt token
+            var token = jwtService.GenerateJwtToken(user, await GetClaims(user));
+
+            return await Task<AuthRespModel>.FromResult(new AuthRespModel(user.Id, token));
         }
     }
 }

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Localization;
-using netcoreAPI.Controllers;
 using netcoreAPI.Extensions;
 using netcoreAPI.Identity;
 using netcoreAPI.Structures;
