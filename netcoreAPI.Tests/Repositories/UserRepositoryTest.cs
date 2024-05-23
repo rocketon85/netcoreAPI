@@ -1,4 +1,5 @@
-using netcoreAPI.Models;
+using netcoreAPI.Contracts.Models.Requests;
+using netcoreAPI.Contracts.Models.Responses;
 using netcoreAPI.Tests.Collections;
 
 namespace netcoreAPI.Tests.Repositories
@@ -14,7 +15,7 @@ namespace netcoreAPI.Tests.Repositories
         [Fact]
         public async void Authenticate()
         {
-            AuthRespModel? resp = await Repository.User.Authenticate(new AuthRequest { Username = "user", Password = "user123" });
+            AuthorizationResponse? resp = await Repository.User.Authenticate(new AuthorizationRequest { Username = "user", Password = "user123" });
             Assert.True(resp?.UserId == 1);
         }
     }

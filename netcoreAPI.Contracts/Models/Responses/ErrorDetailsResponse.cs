@@ -1,10 +1,7 @@
-﻿using System.Net;
-
-namespace netcoreAPI.Models
+﻿namespace netcoreAPI.Contracts.Models.Responses
 {
-    public class ErrorDetails
+    public class ErrorDetailsResponse
     {
-
         public int StatusCode { get; set; }
         public string Message { get; set; }
     }

@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <PackageId>netcoreApi.Contracts</PackageId>
+    <Version>1.0.3</Version>
+    <Authors>Bruno Canalini</Authors>
+    <Company>netcoreAPI</Company>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo $(ProjectPath)" />
+
+    
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo creating package" />
+    <Exec Command="dotnet pack --no-build --no-restore $(ProjectPath) -o  $(OutputPath)..\..\Publish /p:OutputPath=$(OutputPath)" />
+
+    <Exec Command="echo publish on local path" />
+    
+    <ItemGroup>
+      <MySourceFiles Include="$(OutputPath)..\..\Publish\*.nupkg" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(MySourceFiles)" DestinationFolder="C:\Proyects\examples\netcoreAPI\packages\%(RecursiveDir)" />
+  </Target>
+
+
+
+  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <ItemGroup>
+         <MySourceFiles Include="C:\Proyects\examples\netcoreAPI\netcoreAPI.Contracts\bin\Debug\netcoreApi.Contracts.1.0.0.nupkg" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(MySourceFiles)" DestinationFolder="C:\Proyects\examples\netcoreAPI\packages\%(RecursiveDir)" />
+  </Target>-->
+</Project>
+
+
+
+<!--<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <PackageId>netcoreApi.Contracts</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Bruno Canalini</Authors>
+    <Company>netcoreAPI</Company>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <ItemGroup>
+         <MySourceFiles Include="$(OutputPath)\..\*.nupkg" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(MySourceFiles)" DestinationFolder="$(ProjectPath)\..\..\packages\%(RecursiveDir)" />
+  </Target>
+</Project>-->

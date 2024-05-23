@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
+using netcoreAPI.Contracts.Models.Requests;
+using netcoreAPI.Contracts.Models.Responses;
 using netcoreAPI.Extensions;
-using netcoreAPI.Models;
 using netcoreAPI.Options;
 using netcoreAPI.Repositories;
 using netcoreAPI.Structures;
@@ -33,10 +34,10 @@ namespace netcoreAPI.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        [ProducesResponseType(typeof(AuthRespModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(AuthorizationResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Produces("application/json")]
-        public async Task<ActionResult<AuthRespModel>> Authenticate(AuthRequest model)
+        public async Task<ActionResult<AuthorizationResponse>> Authenticate(AuthorizationRequest model)
         {
             var response = await repository.User.Authenticate(model);
             

@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using netcoreAPI.Context;
+using netcoreAPI.Contracts.Models.Responses;
 using netcoreAPI.Helper;
 using netcoreAPI.Hubs;
 using netcoreAPI.Middlewares;
-using netcoreAPI.Models;
 using netcoreAPI.Options;
 using netcoreAPI.Repositories;
 using netcoreAPI.Services;
@@ -37,6 +37,7 @@ namespace netcoreAPI.Extensions
 
             //Add Localization Support
             services.AddConfigureLocalization(envSettings);
+            services.AddExceptionHandler<Middlewares.ExceptionHandlerMiddleware>();
 
             //Add Cors Policy
             services.AddCors(options =>
@@ -93,9 +94,9 @@ namespace netcoreAPI.Extensions
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseMiddleware<ExceptionHandlerMiddleware>(); 
             app.UseMiddleware<JwtMiddleware>();
-            
+
+            app.UseExceptionHandler(o => { }); 
 
             var localizeOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
             if (localizeOptions != null) app.UseRequestLocalization(localizeOptions.Value);
@@ -134,9 +135,9 @@ namespace netcoreAPI.Extensions
             //Add Minimal API Example
             app.MapGet("/api/info", async () =>
             {
-                return await Task.FromResult(Results.Ok(new ApiInfoModel("Canalini, Bruno", "v2.0")));
+                return await Task.FromResult(Results.Ok(new ApiInfoResponse() { Author = @"Canalini, Bruno", Version = @"v2.0" }));
             })
-            .Produces<ApiInfoModel>(StatusCodes.Status200OK)
+            .Produces<ApiInfoResponse>(StatusCodes.Status200OK)
             .WithOpenApi(operation => new(operation)
             {
                 Summary = "API Info",

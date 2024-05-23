@@ -1,7 +1,11 @@
-﻿namespace netcoreAPI.Hubs
+﻿using netcoreAPI.Structures;
+
+namespace netcoreAPI.Hubs
 {
     public interface ISignalRHub
     {
-        public Task SendAll(string message);
+        public void SendAllMessageAsync(string message);
+
+        public void SendAllDataAsync(string type,  dynamic data);  
     }
 }

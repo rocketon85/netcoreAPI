@@ -1,7 +1,6 @@
-﻿namespace netcoreAPI.Models.V2
+﻿namespace netcoreAPI.Contracts.Models.Requests.V2
 {
-    public record CarViewModel(int Id, string Name, bool HasGraffiti, string FuelName, string BrandName, string ModelName);
-    public record CarCreateModel
+    public record  CarCreateRequest
     {
         public required string Name { get; set; }
         public required int FuelId { get; set; }

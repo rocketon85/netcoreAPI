@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using netcoreAPI.Structures;
 
 namespace netcoreAPI.Hubs
 {
@@ -11,9 +12,14 @@ namespace netcoreAPI.Hubs
         }
 
         //define all methods that the hub listens to
-        public async Task SendAll(string message)
+        public async void SendAllMessageAsync(string message)
         {
-            await Clients.All.SendCoreAsync("Send", new[] { message });
+            await Clients.All.SendCoreAsync("SendAllMessageAsync", new[] { message });
+        }
+
+        public async void SendAllDataAsync(string type, dynamic data)
+        {
+            await Clients.All.SendCoreAsync(type, data);
         }
     }
 }

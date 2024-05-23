@@ -2,7 +2,8 @@
 using netcoreAPI.Context;
 using netcoreAPI.Helper;
 using netcoreAPI.Identity;
-using netcoreAPI.Models;
+using netcoreAPI.Contracts.Models.Responses;
+using netcoreAPI.Contracts.Models.Requests;
 using netcoreAPI.Services;
 using System.Security.Claims;
 
@@ -45,7 +46,7 @@ namespace netcoreAPI.Repositories
         //    return await FindByCondition(p => p.Name.ToLower() == name.ToLower() && helperEncryptor.DecryptString(p.Password) == password).SingleOrDefaultAsync();
         //}
 
-        public async Task<AuthRespModel?> Authenticate(AuthRequest request)
+        public async Task<AuthorizationResponse?> Authenticate(AuthorizationRequest request)
         {
             var user = await FindByCondition(p => p.Name.ToLower() == request.Username.ToLower() && helperEncryptor.DecryptString(p.Password) == request.Password).SingleOrDefaultAsync();
 
@@ -56,7 +57,7 @@ namespace netcoreAPI.Repositories
             // authentication successful so generate jwt token
             var token = jwtService.GenerateJwtToken(user, await GetClaims(user));
 
-            return await Task<AuthRespModel>.FromResult(new AuthRespModel(user.Id, token));
+            return await Task<AuthorizationResponse>.FromResult(new AuthorizationResponse() { Token= token, UserId= user.Id });
         }
     }
 }

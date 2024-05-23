@@ -8,8 +8,9 @@ namespace netcoreAPI.Repositories
         IQueryable<T> FindAll();
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
         void Create(T entity);
-        Task<T> CreateAsync(T entity);
+        Task<T> CreateAsync(T entity, CancellationToken cancellation = default(CancellationToken));
         void Update(T entity);
         void Delete(T entity);
+        
     }
 }

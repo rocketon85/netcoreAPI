@@ -1,6 +1,6 @@
-﻿using netcoreAPI.Models;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using netcoreAPI.Contracts.Models.Responses;
 using System.Net;
-using System.Web.Http.ExceptionHandling;
 
 
 namespace netcoreAPI.Middlewares
@@ -8,39 +8,23 @@ namespace netcoreAPI.Middlewares
 
     class ExceptionHandlerMiddleware : IExceptionHandler
     {
-        private readonly RequestDelegate _next;
-        public ExceptionHandlerMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
-
-        public Task HandleAsync(ExceptionHandlerContext context, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task InvokeAsync(HttpContext httpContext, ILogger<IExceptionHandler> logger)
-        {
-            try
-            {
-                await _next(httpContext);
-            }
-            catch (Exception ex)
-            {
-                logger.LogError($"Exception occured: {ex}");
-                await HandleExceptionAsync(httpContext, ex);
-            }
-        }
-        private async Task HandleExceptionAsync(HttpContext context, Exception exception)
+     
+        public async ValueTask<bool> TryHandleAsync(HttpContext context,
+                                                    Exception exception,
+                                                    CancellationToken cancellation)
         {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-            await context.Response.WriteAsJsonAsync(new ErrorDetails()
+            // Your response object
+            var error = new ErrorDetailsResponse()
             {
                 StatusCode = context.Response.StatusCode,
-                Message = "Internal Server Error."
-            });
+                Message = @"Internal Server Error."
+            };
+            await context.Response.WriteAsJsonAsync(error, cancellation);
+            return true;
         }
+
     }
 }

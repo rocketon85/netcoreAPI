@@ -49,10 +49,10 @@ namespace netcoreAPI.Repositories
             return await RepositoryContext.Cars.SingleOrDefaultAsync(p => p.Name.ToLowerInvariant() == name.ToLowerInvariant());
         }
 
-        public override async Task<CarDomain?> CreateAsync(CarDomain model)
+        public override async Task<CarDomain?> CreateAsync(CarDomain model, CancellationToken cancellation = default(CancellationToken))
         {
             await base.CreateAsync(model);
-            int result = await RepositoryContext.SaveChangesAsync();
+            int result = await SaveChangeAsync(cancellation);
             var car = await FindByCondition(p => p.Id == model.Id).FirstOrDefaultAsync();
             if (result == 1) azureFuncService.FuncNewCar(car);
             return model;

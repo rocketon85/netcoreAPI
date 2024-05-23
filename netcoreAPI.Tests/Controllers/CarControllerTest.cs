@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using netcoreAPI.Controllers.V1;
-using netcoreAPI.Models.V1;
+using netcoreAPI.Contracts.Models.Requests.V1;
+using netcoreAPI.Contracts.Models.Responses.V1;
 using netcoreAPI.Repositories;
 using System.Net;
 
@@ -26,11 +27,11 @@ namespace netcoreAPI.Tests.Controllers
         {
             CarController controller = new CarController(null, Repository, Mapper);
 
-            var result = await controller.CreateCar(new Models.V1.CarCreateModel() { BrandId = 1, FuelId = 1, ModelId = 1 });
+            var result = await controller.CreateCar(new CarCreateRequest() { BrandId = 1, FuelId = 1, ModelId = 1 });
             var actualResult = (ObjectResult)result.Result;
             var actualAttribute = controller.GetType().GetMethod("CreateCar").GetCustomAttributes(typeof(AuthorizeAttribute), true);
 
-            Assert.True(((CarViewModel)actualResult.Value).Id > 0);
+            Assert.True(((CarViewResponse)actualResult.Value).Id > 0);
             Assert.Equal(HttpStatusCode.OK, (HttpStatusCode)actualResult.StatusCode);
             Assert.Equal(typeof(AuthorizeAttribute), actualAttribute[0].GetType());
             Assert.True( ((Microsoft.AspNetCore.Authorization.AuthorizeAttribute)actualAttribute[0]).Roles.Contains("admin"));

@@ -7,19 +7,30 @@ namespace netcoreAPI.Extensions
     {
         public AutoMapperProfile()
         {
-            CreateMap<CarDomain, Models.V1.CarViewModel>()
-                .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.Name))
-                .ForMember(dest => dest.FuelName, opt => opt.MapFrom(src => src.Fuel.Name))
-                .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.Model.Name));
+            CreateAutoMapperV1();
+            CreateAutoMapperV2();          
+        }
 
-            CreateMap<Models.V1.CarCreateModel, CarDomain>();
-
-            CreateMap<CarDomain, Models.V2.CarViewModel>()
+        public void CreateAutoMapperV1()
+        {
+            CreateMap<CarDomain, Contracts.Models.Responses.V1.CarViewResponse>()
                .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.Name))
                .ForMember(dest => dest.FuelName, opt => opt.MapFrom(src => src.Fuel.Name))
                .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.Model.Name));
 
-            CreateMap<Models.V2.CarCreateModel, CarDomain>();
+            CreateMap<Contracts.Models.Requests.V1.CarCreateRequest, CarDomain>();
+        }
+
+        public void CreateAutoMapperV2()
+        {
+            CreateMap<CarDomain, Contracts.Models.Responses.V2.CarViewResponse>()
+              .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.Name))
+              .ForMember(dest => dest.FuelName, opt => opt.MapFrom(src => src.Fuel.Name))
+              .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.Model.Name));
+
+
+            CreateMap<Contracts.Models.Requests.V2.CarCreateRequest, CarDomain>();
+
         }
     }
 }
